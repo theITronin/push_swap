@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   computer_disorder.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pbv <pbv@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 15:02:51 by pabbenit          #+#    #+#             */
-/*   Updated: 2026/10/17 18:58:45 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/18 19:46:34 by pbv              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ double	index_disorder(int *array, int size)
 	int	i;
 	int	j;
 
+	if (size < 2)
+    	return (0.0);
 	mistakes = 0;
 	total_pairs = 0;
 	i = 0;
@@ -35,14 +37,4 @@ double	index_disorder(int *array, int size)
 		i++;
 	}
 	return ((double)mistakes / (double)total_pairs);
-}
-
-int	main(void)
-{
-	double	disord_index;
-	int		array[] = {3,2,5,6,7,3,6,1};
-	
-	disord_index = index_disorder(array, 8);
-	printf("Índice de desorden: %.2f\n", disord_index);
-	return (0);
 }
