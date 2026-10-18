@@ -6,74 +6,74 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:04 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/17 16:50:01 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/18 10:49:06 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	patch_flag(char *flag)
+int	print_error(int	err_id)
 {
-	int	i;
-	size_t	len;
-
-	i = 0;
-	if (!flag)
-		return (1);
-	len = ft_strlen(flag);
-	if (ft_strncmp(flag, "--simple", len) != 0)
-		print_error();
-	else if (ft_strncmp(flag, "--medium", len) != 0)
-		print_error();
-	else if (ft_strncmp(flag, "--complex", len) != 0)
-		print_error();
-	else if (ft_strncmp(flag, "--adaptive", len) != 0)
-		print_error();
-	else if (ft_strncmp(flag, "--bench", len) != 0)
-		print_error();
-	return (0);
+	write (2, "Error", 5);
+		exit(err_id);
 }
 
-int	patch_params(int argc, char **argv)
+int	patch_flag(char *flag, t_list *data)
+{
+	enum all_flags	id_flag;
+
+	if (!flag || !data)
+		print_error(-3);
+	id_flag = INVALID_FLAG;
+	if (data->check_flag == 0)
+	{
+		if (ft_strcmp(flag, "--simple") == 0)
+			id_flag = SIMPLE;
+		else if (ft_strcmp(flag, "--medium") == 0)
+			id_flag = MEDIUM;
+		else if (ft_strcmp(flag, "--complex") == 0)
+			id_flag = COMPLEX;
+		else if (ft_strcmp(flag, "--adaptive") == 0)
+			id_flag = ADAPTIVE;
+		if (id_flag >= 0)
+			return (data->check_flag = 1);
+	}
+	if (data->check_bench == 0 && ft_strcmp(flag, "--bench") == 0)
+		return (data->check_bench = 1);
+	return (print_error(-3));
+};
+
+void	patch_params(int argc, char **argv, t_list *data)
 {
 	int i;
 	int	j;
-	int	state;
 
 	i = 1;
 	j = 0;
-	state = 0;
 	while (i < argc)
 	{
+		if (argv[i][0] == '-' && argv[i][1] == '-' && patch_flag(argv[i], data))
+				i++;
 		while (argv[i][j] != '\0')
 		{
-			if (argv[i][j] == '-' && argv[i][j + 1] == '-' && !patch_flag(argv[i]))
-			{
-				if (state == 0)
-					print_error();
-				state = 1;
-				i++;
-			}
-			else if ((!ft_isdigit(argv[i][j])) && argv[i][j] != '-' && argv[i][j] != '+')
-				return (1);
-			j++;
+			if ((ft_isdigit(argv[i][j])) || (argv[i][0] != '-' && ft_isdigit(argv[i][j + 1])))
+				j++;
+			else
+				print_error(-2);
 		}
 		i++;
 	}
-	return (0);
-}
-
-int	print_error(void)
-{
-	write (2, "Error", 5);
-		exit(-1);
 }
 
 int	main(int argc, char **argv)
 {
+	t_list 	*data;
+
 	if (argc < 1)
 		return (-1);
-	if (patch_params(argc, argv))
-		print_error();
+	data = (t_list *)malloc(sizeof(t_list));
+	if (!data)
+		print_error(-1);
+	patch_params(argc, argv, data);
 	return (0);
 }
