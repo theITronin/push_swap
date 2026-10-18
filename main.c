@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:04 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/18 11:36:09 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/18 12:58:05 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	patch_params(int argc, char **argv, t_list *data)
 
 	i = 1;
 	j = 0;
+	data->len_a = 0;
 	while (i < argc)
 	{
 		while (argv[i][j] != '\0')
@@ -63,8 +64,26 @@ void	patch_params(int argc, char **argv, t_list *data)
 			else
 				print_error(-2, data);
 		}
+		add_params(argv[i], data);
 		i++;
 	}
+}
+
+void	add_params(char *raw_num, t_list *data)
+{
+	int		i;
+	char	**numbers;
+	t_stack	*a;
+
+	i = 0;
+	numbers = ft_split(raw_num, ' ');
+	while (numbers[i])
+	{
+		//a->number = ft_atoi(numbers[i])
+		data->len_a++;
+		i++;
+	}
+
 }
 
 int	main(int argc, char **argv)
