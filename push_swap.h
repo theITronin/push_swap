@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/20 16:26:41 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/20 17:56:30 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,15 @@
 # include <stdlib.h>
 # include "libft.h"
 
-typedef enum e_strategy
+typedef enum e_flags
 {
 	INVALID_FLAG = -1,
 	SIMPLE,
 	MEDIUM, 
 	COMPLEX, 
 	ADAPTIVE
-}	t_strategy;
+}	t_flags;
 
-enum all_flags
-{
-	INVALID_FLAG = -1,
-	SIMPLE,
-	MEDIUM,
-	COMPLEX,
-	ADAPTIVE
-};
 
 typedef struct	s_node
 {
@@ -50,25 +42,15 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
-typedef struct	s_program
+typedef struct	s_data
 {
-	t_stack		a;
-	t_stack		b;
-	t_strategy	strategy;
-	int			bench;
+	t_stack		*a;
+	t_stack		*b;
+	t_flags		id_flag;
+	int			check_bench;
 	double		disorder;
-}	t_program;
+}	t_data;
 
-typedef struct s_list
-{
-	struct s_stack	a;
-	struct s_stack	b;
-	int				len_a;
-	int				len_b;
-	int				check_flag;
-	int				check_bench;
-	enum all_flags	id_flag;
-}	t_list;
 
 t_node	*create_node(int value);
 t_node	*detach_front(t_stack *stack);
