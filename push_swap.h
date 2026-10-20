@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/20 14:45:24 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/20 15:54:19 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 # include <stdlib.h>
 # include "libft.h"
 
-enum all_flags
+typedef enum e_strategy
 {
 	INVALID_FLAG = -1,
 	SIMPLE,
 	MEDIUM, 
 	COMPLEX, 
 	ADAPTIVE
-};
+}	t_strategy;
 
 typedef struct	s_node
 {
@@ -41,16 +41,14 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
-typedef struct s_list
+typedef struct	s_program
 {
-	struct s_stack	a;
-	struct s_stack	b;
-	int				len_a;
-	int				len_b;
-	int				check_flag;
-	int				check_bench;
-	enum all_flags	id_flag;
-}	t_list;
+	t_stack		a;
+	t_stack		b;
+	t_strategy	strategy;
+	int			bench;
+	double		disorder;
+}	t_program;
 
 t_node	*create_node(int value);
 t_node	*detach_front(t_stack *stack);
