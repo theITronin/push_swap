@@ -6,7 +6,7 @@
 /*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/20 15:54:19 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/20 16:26:41 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ typedef enum e_strategy
 	COMPLEX, 
 	ADAPTIVE
 }	t_strategy;
+
+enum all_flags
+{
+	INVALID_FLAG = -1,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX,
+	ADAPTIVE
+};
 
 typedef struct	s_node
 {
@@ -49,6 +58,17 @@ typedef struct	s_program
 	int			bench;
 	double		disorder;
 }	t_program;
+
+typedef struct s_list
+{
+	struct s_stack	a;
+	struct s_stack	b;
+	int				len_a;
+	int				len_b;
+	int				check_flag;
+	int				check_bench;
+	enum all_flags	id_flag;
+}	t_list;
 
 t_node	*create_node(int value);
 t_node	*detach_front(t_stack *stack);
