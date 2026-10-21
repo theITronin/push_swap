@@ -8,7 +8,8 @@ AR = ar rcs
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SOURCES = main.c simple_algorithm.c medium_algorithm.c complex_algorithm.c
+SOURCES = main.c patch.c operations_utils.c operations_utils_2.c \
+		  index_disorder.c
 
 OBJS = $(SOURCES:.c=.o)
 

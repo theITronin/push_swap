@@ -34,7 +34,7 @@ void	print_stack(t_stack *stack)
 	p = stack->head;
 	while (p != NULL)
 	{
-		printf("Valor: %d\n", p->value);
+		ft_printf("Valor: %d\n", p->value);
 		p = p->next;
 	}
 }
@@ -48,7 +48,7 @@ void	print_stack_reverse(t_stack *stack)
 	p = stack->tail;
 	while (p != NULL)
 	{
-		printf("Valor: %d\n", p->value);
+		ft_printf("Valor: %d\n", p->value);
 		p = p->prev;
 	}
 }

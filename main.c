@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:04 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/20 18:28:22 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/21 17:14:00 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int	main(int argc, char **argv)
 		print_error(-1, data);
 	init_stacks(data);
 	patch_params(argc, argv, data);
+	print_stack(data->a);
 	return (0);
 }
