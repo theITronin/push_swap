@@ -27,15 +27,15 @@ t_node	*create_node(int value)
 
 void	print_stack(t_stack *stack)
 {
-	t_node	*p;
+	t_node	*current;
 
 	if (stack == NULL)
 		return ;
-	p = stack->head;
-	while (p != NULL)
+	current = stack->head;
+	while (current != NULL)
 	{
-		ft_printf("Valor: %d\n", p->value);
-		p = p->next;
+		ft_printf("Valor: %d\n", current->value);
+		current = current->next;
 	}
 }
 
@@ -51,4 +51,39 @@ void	print_stack_reverse(t_stack *stack)
 		ft_printf("Valor: %d\n", p->value);
 		p = p->prev;
 	}
+}
+
+int	check_number(t_stack *stack, int value)
+{
+	t_node	*current;
+
+	if (stack == NULL)
+		return (0);
+	current = stack->head;
+	while (current != NULL)
+	{
+		if (current->value == value)
+			return (1);
+		current = current->next;
+	}
+	return (0);
+}
+
+t_node	*get_node_at(t_stack *stack, int index)
+{
+	int		temp;
+	t_node	*current;
+
+	if (stack == NULL)
+		return (NULL);
+	current = stack->head;
+	temp = 0;
+	while (current != NULL)
+	{
+		if (temp == index)
+			return (current);
+		current = current->next;
+		temp++;
+	}
+	return (NULL);
 }
