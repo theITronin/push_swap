@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/21 16:43:14 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/22 12:10:29 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct	s_data
 t_node	*create_node(int value);
 t_node	*detach_front(t_stack *stack);
 t_node	*detach_back(t_stack *stack);
+t_node	*get_node_at(t_stack *stack, int index);
 
 void	clear_stack(t_stack *stack);
 void	add_front(t_stack *stack, t_node *new);
@@ -61,11 +62,12 @@ void	add_back(t_stack *stack, t_node *new);
 void	print_stack(t_stack *stack);
 void	print_stack_reverse(t_stack *stack);
 void	init_stacks(t_data *data);
-void	patch_params(int argc, char **argv, t_data *data);
+void	parse_params(int argc, char **argv, t_data *data);
 void	add_params(char *raw_num, t_data *data);
 
 int		main(int argc, char **argv);
 int		print_error(int	err_id, t_data *data);
-int		patch_flag(char *flag, t_data *data);
+int		parse_flag(char *flag, t_data *data);
+int		check_number(t_stack *stack, int value);
 
 #endif

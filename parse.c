@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   patch.c                                            :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:40:19 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/21 18:00:16 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/22 12:10:54 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	print_error(int	err_id, t_data *data)
 	exit(err_id);
 }
 
-int	patch_flag(char *flag, t_data *data)
+int	parse_flag(char *flag, t_data *data)
 {
 	if (!flag || !data)
 		print_error(-3, data);
@@ -49,7 +49,7 @@ int	patch_flag(char *flag, t_data *data)
 	return (print_error(-3, data));
 };
 
-void	patch_params(int argc, char **argv, t_data *data)
+void	parse_params(int argc, char **argv, t_data *data)
 {
 	int i;
 	int	j;
@@ -60,7 +60,7 @@ void	patch_params(int argc, char **argv, t_data *data)
 	{
 		j = 0;
 		if (argv[i][0] == '-' && argv[i][1] == '-')
-			patch_flag(argv[i], data);
+			parse_flag(argv[i], data);
 		else
 		{
 			while (argv[i][j] != '\0')
