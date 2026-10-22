@@ -8,7 +8,7 @@ AR = ar rcs
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SOURCES = main.c patch.c operations_utils.c operations_utils_2.c \
+SOURCES = main.c parse.c operations_utils.c operations_utils_2.c \
 		  index_disorder.c
 
 OBJS = $(SOURCES:.c=.o)

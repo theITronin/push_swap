@@ -69,21 +69,3 @@ int	check_number(t_stack *stack, int value)
 	return (0);
 }
 
-t_node	*get_node_at(t_stack *stack, int index)
-{
-	int		temp;
-	t_node	*current;
-
-	if (stack == NULL)
-		return (NULL);
-	current = stack->head;
-	temp = 0;
-	while (current != NULL)
-	{
-		if (temp == index)
-			return (current);
-		current = current->next;
-		temp++;
-	}
-	return (NULL);
-}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:40:19 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/22 12:10:54 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/22 18:25:43 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	parse_params(int argc, char **argv, t_data *data)
 	int	j;
 
 	i = 1;
-	data->id_flag = INVALID_FLAG;
 	while (i < argc)
 	{
 		j = 0;
@@ -65,31 +64,35 @@ void	parse_params(int argc, char **argv, t_data *data)
 		{
 			while (argv[i][j] != '\0')
 			{
-				if ((ft_isdigit(argv[i][j])) || (argv[i][0] == '-' && ft_isdigit(argv[i][j + 1])))
+				if ((ft_isdigit(argv[i][j])) || (argv[i][j + j] == '-' && ft_isdigit(argv[i][j + 1])))
 					j++;
 				else if (argv[i][j] == ' ')
 					j++;
 				else
 					print_error(-2, data);
 			}
-			add_params(argv[i], data);
+			add_parse_params(argv[i], data);
 		}
 		i++;
 	}
 }
 
-void	add_params(char *raw_num, t_data *data)
+void	add_parse_params(char *raw_num, t_data *data)
 {
 	int		i;
+	int		n;
 	char	**numbers;
+	t_node	*tmp;
 
 	i = 0;
 	numbers = ft_split(raw_num, ' ');
 	while (numbers[i])
 	{
-		t_node	*tmp;
-		tmp = create_node(ft_atoi(numbers[i]));
+		n = ft_atoi(numbers[i]);
+		tmp = create_node(n);
 		if (!tmp)
+			print_error(-1, data);
+		if (check_number(data->a, n))
 			print_error(-1, data);
 		add_back(data->a, tmp);
 		i++;
