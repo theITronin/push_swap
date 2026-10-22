@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 14:35:15 by pabbenit          #+#    #+#             */
-/*   Updated: 2026/10/20 18:39:20 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/22 16:13:22 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
