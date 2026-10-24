@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:40:19 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/24 13:22:32 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/24 19:23:46 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,33 +71,9 @@ void	parse_params(int argc, char **argv, t_data *data)
 				else
 					print_error(-2, data);
 			}
-			add_parse_params(argv[i], data);
+			split_params(argv[i], data);
 		}
 		i++;
 	}
 }
 
-void	add_parse_params(char *raw_num, t_data *data)
-{
-	int		i;
-	int		n;
-	char	**numbers;
-	t_node	*tmp;
-
-	i = 0;
-	numbers = ft_split(raw_num, ' ');
-	if (!numbers ||!numbers[0])
-		print_error(-3, data);
-	while (numbers[i])
-	{
-		n = ft_atoi(numbers[i]);
-		tmp = create_node(n);
-		if (!tmp)
-			print_error(-1, data);
-		if (check_number(data->a, n))
-			print_error(-1, data);
-		add_back(data->a, tmp);
-		i++;
-	}
-
-}

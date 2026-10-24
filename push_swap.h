@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/24 13:24:44 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/24 19:13:43 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,9 @@ void	print_stack_reverse(t_stack *stack);
 void	init_data(t_data *data);
 void	parse_params(int argc, char **argv, t_data *data);
 void	add_parse_params(char *raw_num, t_data *data);
+void	free_params(char **numbers);
+void	add_nodes(char **numbers, t_data *data);
+void	split_params(char *raw_num, t_data *data);
 void	pa(t_data *data);
 void	pb(t_data *data);
 void	sa(t_data *data);
