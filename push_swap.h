@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/24 11:24:47 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/24 13:24:44 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_data
 	t_flags		id_flag;
 	int			check_bench;
 	double		disorder;
+	int			ops_counter[11];
 }	t_data;
 
 t_node	*create_node(int value);

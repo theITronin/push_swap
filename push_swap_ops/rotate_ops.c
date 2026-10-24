@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 10:16:48 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/24 11:15:51 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/24 13:22:07 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	ra(t_data *data)
 {
 	if (rotate(data->a))
-		ft_printf("ra\n");
+		if (!data->check_bench)
+			ft_printf("ra\n");
 	else
 		print_error(-26, data);
 }
@@ -23,7 +24,8 @@ void	ra(t_data *data)
 void	rb(t_data *data)
 {
 	if (rotate(data->b))
-		ft_printf("rb\n");
+		if (!data->check_bench)
+			ft_printf("rb\n");
 	else
 		print_error(-27, data);
 }
@@ -36,7 +38,8 @@ void	rr(t_data *data)
 	result1 = rotate(data->a);
 	result2 = rotate(data->b);
 	if (result1 == 1 && result2 == 1)
-		ft_printf("rr\n");
+		if (!data->check_bench)
+			ft_printf("rr\n");
 	else
 		print_error(-28, data);
 }
