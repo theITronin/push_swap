@@ -8,8 +8,11 @@ AR = ar rcs
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SOURCES = main.c parse.c operations_utils.c operations_utils_2.c \
-		  index_disorder.c
+SOURCES = main.c lst_utils.c lst_utils_2.c parse.c index_disorder.c \
+		  push_swap_ops/op_management.c	push_swap_ops/push_ops.c \
+		  push_swap_ops/rotate_ops.c push_swap_ops/swap_ops.c \
+		  push_swap_ops/rev_rotate_ops.c 
+
 
 OBJS = $(SOURCES:.c=.o)
 
@@ -36,6 +39,7 @@ clean:
 	@echo "Deleting objects files (*.o)..."
 	@$(MAKE) -C $(LIBFT_DIR) clean
 	@rm -rf *.o
+	
 
 # RULE: DELETE OBJECT FILES AND LIBRARY
 fclean: clean

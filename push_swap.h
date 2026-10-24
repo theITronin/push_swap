@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/22 18:02:35 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/24 11:24:47 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,25 @@ void	print_stack_reverse(t_stack *stack);
 void	init_data(t_data *data);
 void	parse_params(int argc, char **argv, t_data *data);
 void	add_parse_params(char *raw_num, t_data *data);
+void	pa(t_data *data);
+void	pb(t_data *data);
+void	sa(t_data *data);
+void	sb(t_data *data);
+void	ss(t_data *data);
+void	ra(t_data *data);
+void	rb(t_data *data);
+void	rr(t_data *data);
+void	rra(t_data *data);
+void	rrb(t_data *data);
+void	rrr(t_data *data);
 
 int		main(int argc, char **argv);
 int		print_error(int	err_id, t_data *data);
 int		parse_flag(char *flag, t_data *data);
 int		check_number(t_stack *stack, int value);
+int		push(t_stack *stack_dst, t_stack *stack_src);
+int		swap(t_stack *stack);
+int		rotate(t_stack *stack);
+int		reverse_rotate(t_stack *stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:40:19 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/22 19:06:56 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/24 12:04:06 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	print_error(int	err_id, t_data *data)
 	if (data)
 	{
 		if (data->a)
-			free(data->a);
+			clear_stack(data->a);
 		if (data->b)
-			free(data->b);
+			clear_stack(data->b);
 		free(data);
 	}
 	exit(err_id);
@@ -58,7 +58,7 @@ void	parse_params(int argc, char **argv, t_data *data)
 	while (i < argc)
 	{
 		j = 0;
-		if (argv[i][0] == '-' && argv[i][1] == '-')
+		if ((argv[i][0] == '-' && argv[i][1] == '-') || !argv[i][0])
 			parse_flag(argv[i], data);
 		else
 		{
@@ -86,6 +86,8 @@ void	add_parse_params(char *raw_num, t_data *data)
 
 	i = 0;
 	numbers = ft_split(raw_num, ' ');
+	if (!numbers ||!numbers[0])
+		print_error(-3, data);
 	while (numbers[i])
 	{
 		n = ft_atoi(numbers[i]);
