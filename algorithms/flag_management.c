@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flag_management.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pbv <pbv@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:23:20 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/25 14:13:51 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/25 18:31:35 by pbv              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,30 @@
 
 void	flag_management(t_data *data)
 {
-	char *strategy;
+	char	*strategy;
 
-	if (data->id_flag == 0)
+	strategy = NULL;
+	if (data->id_flag == SIMPLE)
 	{
 		alg_simple(data);
-		strategy = "Simple / O(n²)";
+		strategy = "Simple / O(n^2)"; // La norma prohíbe caracteres fuera de ASCII
 	}
-	else if (data->id_flag == 1)
+	else if (data->id_flag == MEDIUM)
 	{
 		alg_medium(data);
+		strategy = "Medium / ";
 	}
-	else if (data->id_flag == 2)
+	else if (data->id_flag == COMPLEX)
 	{
 		alg_complex(data);
+		strategy = "Complex / ";
 
 	}
-	/*else
-		alg_adaptive(data);*/
+	else
+	{
+		alg_adaptive(data);
+		strategy = "Adaptive / ";
+	}
 	if (data->check_bench == 1)
 		bench(data, strategy);
 }

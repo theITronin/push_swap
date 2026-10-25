@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pbv <pbv@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/25 11:59:10 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/25 19:21:39 by pbv              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ void	rrr(t_data *data);
 void	alg_simple(t_data *data);
 void	alg_medium(t_data *data);
 void	alg_complex(t_data *data);
-void	bench(t_data *data);
+void	alg_adaptive(t_data *data);
+void	bench(t_data *data, char *strategy);
 void	flag_management(t_data *data);
 
 int		main(int argc, char **argv);
