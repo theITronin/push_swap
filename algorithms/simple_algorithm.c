@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pbv <pbv@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:29:52 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/25 12:00:47 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/25 18:21:27 by pbv              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	alg_simple(t_data *data)
 {
-	int	i;
-	
-	i = data->check_bench;
+	push(data->a, data->b);
+    swap(data->a);
 }

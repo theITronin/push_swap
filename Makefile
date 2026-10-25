@@ -1,9 +1,8 @@
-NAME = push_swap.a
+NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
 
-AR = ar rcs
+CFLAGS = -Wall -Wextra -Werror
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -13,16 +12,14 @@ SOURCES = main.c lst_utils.c lst_utils_2.c parse/parse.c  \
 		  push_swap_ops/push_ops.c push_swap_ops/rotate_ops.c \
 		  push_swap_ops/swap_ops.c push_swap_ops/rev_rotate_ops.c \
 		  algorithms/complex_algorithm.c algorithms/medium_algorithm.c \
-		  algorithms/simple_algorithm.c algorithms/flag_management.c \
-		  algorithms/index_disorder.c bench/bench.c
-
+		  algorithms/simple_algorithm.c algorithms/adaptive_algorithm.c \
+		  algorithms/flag_management.c algorithms/index_disorder.c bench/bench.c
 
 OBJS = $(SOURCES:.c=.o)
 
-# RULE TO CREATE A LIBRARY
-$(NAME): $(LIBFT) $(OBJS)
-	cp $(LIBFT) $(NAME)
-	@$(AR) $@ $(OBJS)
+# RULE TO CREATE THE PROGRAM
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 	@echo "********************************"
 	@echo "Compilation $(NAME) completed"
 	@echo "********************************"
@@ -31,7 +28,7 @@ $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 # CREATOR OBJS RULE
-%.o : %.c
+%.o: %.c push_swap.h
 	@echo "Compiling..."
 	$(CC) $(CFLAGS) -I. -I$(LIBFT_DIR) -c  $< -o $@
 
@@ -41,8 +38,7 @@ all:  $(NAME)
 clean:
 	@echo "Deleting objects files (*.o)..."
 	@$(MAKE) -C $(LIBFT_DIR) clean
-	@rm -rf *.o
-	
+	@rm -rf $(OBJS)
 
 # RULE: DELETE OBJECT FILES AND LIBRARY
 fclean: clean
@@ -55,4 +51,4 @@ re: fclean all
 	@echo "Recompiling project..."
 
 # PHONY TARGETS
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re

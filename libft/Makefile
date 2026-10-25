@@ -42,12 +42,12 @@ all: $(NAME)
 # RULE: DELETE OBJECT FILES
 clean:
 	@echo "Deleting objects files (*.o)..."
-	@rm -rf *.o
+	@rm -f $(OBJS)
 
 # RULE: DELETE OBJECT FILES AND LIBRARY
 fclean: clean
 	@echo "Deleting object files and library..."
-	@rm -rf $(NAME)
+	@rm -f $(NAME)
 
 # RULE: RECOMPILES ALL
 re: fclean all
