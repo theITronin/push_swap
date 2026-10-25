@@ -6,11 +6,36 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 18:40:59 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/24 18:47:53 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/25 11:52:05 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+long	ft_atol(char *nptr)
+{
+	long	n;
+	int		negative;
+	size_t	i;
+
+	n = 0;
+	negative = 0;
+	i = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+		i++;
+	if (nptr[i] == '-')
+		negative = 1;
+	if (nptr[i] == '-' || nptr[i] == '+')
+		i++;
+	while (nptr[i] >= 48 && nptr[i] <= 57)
+	{
+		n = n * 10 + (nptr[i] - '0');
+		i++;
+	}
+	if (negative == 1)
+		n = n * -1;
+	return (n);
+}
 
 void	free_params(char **numbers)
 {
@@ -28,13 +53,15 @@ void	free_params(char **numbers)
 void	add_nodes(char **numbers, t_data *data)
 {
 	int		i;
-	int		n;
+	long	n;
 	t_node	*tmp;
 
 	i = 0;
 	while (numbers[i])
 	{
-		n = ft_atoi(numbers[i]);
+		n = ft_atol(numbers[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			print_error (-4, data);
 		tmp = create_node(n);
 		if (!tmp)
 			print_error(-1, data);

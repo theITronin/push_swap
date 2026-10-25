@@ -8,10 +8,13 @@ AR = ar rcs
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SOURCES = main.c lst_utils.c lst_utils_2.c parse.c index_disorder.c \
-		  parse_add_params.c push_swap_ops/op_management.c	\
+SOURCES = main.c lst_utils.c lst_utils_2.c parse/parse.c  \
+		  parse/parse_add_params.c push_swap_ops/op_management.c \
 		  push_swap_ops/push_ops.c push_swap_ops/rotate_ops.c \
-		  push_swap_ops/swap_ops.c push_swap_ops/rev_rotate_ops.c
+		  push_swap_ops/swap_ops.c push_swap_ops/rev_rotate_ops.c \
+		  algorithms/complex_algorithm.c algorithms/medium_algorithm.c \
+		  algorithms/simple_algorithm.c algorithms/flag_management.c \
+		  algorithms/index_disorder.c bench/bench.c
 
 
 OBJS = $(SOURCES:.c=.o)

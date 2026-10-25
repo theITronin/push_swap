@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/24 19:13:43 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/25 11:59:10 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stddef.h>
 # include <stdlib.h>
+# include <limits.h>
 # include "libft/libft.h"
 
 typedef enum e_flags
@@ -78,6 +79,11 @@ void	rr(t_data *data);
 void	rra(t_data *data);
 void	rrb(t_data *data);
 void	rrr(t_data *data);
+void	alg_simple(t_data *data);
+void	alg_medium(t_data *data);
+void	alg_complex(t_data *data);
+void	bench(t_data *data);
+void	flag_management(t_data *data);
 
 int		main(int argc, char **argv);
 int		print_error(int	err_id, t_data *data);
@@ -87,5 +93,7 @@ int		push(t_stack *stack_dst, t_stack *stack_src);
 int		swap(t_stack *stack);
 int		rotate(t_stack *stack);
 int		reverse_rotate(t_stack *stack);
+
+long	ft_atol(char *nptr);
 
 #endif
