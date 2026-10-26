@@ -85,6 +85,7 @@ void	alg_complex(t_data *data);
 void	alg_adaptive(t_data *data);
 void	bench(t_data *data, char *strategy);
 void	flag_management(t_data *data);
+void	lst_to_int(t_data *data);
 
 int		main(int argc, char **argv);
 int		print_error(int	err_id, t_data *data);

@@ -10,7 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "push_swap.h"
+
+void	lst_to_int(t_data *data)
+{
+
+}
 
 double	index_disorder(int *array, int size)
 {

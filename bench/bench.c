@@ -32,8 +32,8 @@ void	bench(t_data *data, char *strategy)
 	int	disorder;
 
 	disorder = data->disorder * 10000;
-	ft_printf("[bench] disorder: %d.%d", disorder / 100, disorder % 100);
-	ft_printf("[bench] strategy: %s", strategy);
-	ft_printf("[bench] total_ops: %d", total_ops(data));
+	ft_printf("[bench] disorder: %d.%d\n", disorder / 100, disorder % 100);
+	ft_printf("[bench] strategy: %s\n", strategy);
+	ft_printf("[bench] total_ops: %d\n", total_ops(data));
 }
 

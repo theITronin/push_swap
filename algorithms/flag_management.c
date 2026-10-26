@@ -20,23 +20,22 @@ void	flag_management(t_data *data)
 	if (data->id_flag == SIMPLE)
 	{
 		alg_simple(data);
-		strategy = "Simple / O(n^2)"; // La norma prohíbe caracteres fuera de ASCII
+		strategy = "Simple / O(n^2)";
 	}
 	else if (data->id_flag == MEDIUM)
 	{
 		alg_medium(data);
-		strategy = "Medium / ";
+		strategy = "Medium / O(n√n)";
 	}
 	else if (data->id_flag == COMPLEX)
 	{
 		alg_complex(data);
-		strategy = "Complex / ";
-
+		strategy = "Complex / O(n log n)";
 	}
 	else
 	{
 		alg_adaptive(data);
-		strategy = "Adaptive / ";
+		strategy = "Adaptive / "; // Adaptive manage of the big O notation in bench is missing.
 	}
 	if (data->check_bench == 1)
 		bench(data, strategy);

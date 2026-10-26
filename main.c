@@ -42,5 +42,7 @@ int	main(int argc, char **argv)
 	init_data(data);
 	parse_params(argc, argv, data);
 	print_stack(data->a);
+	index_disorder(data);
+	flag_management(data);
 	return (0);
 }
