@@ -57,6 +57,7 @@ t_node	*create_node(int value);
 t_node	*detach_front(t_stack *stack);
 t_node	*detach_back(t_stack *stack);
 t_node	*get_node_at(t_stack *stack, int index);
+t_node	*get_node_at(t_stack *stack, int index);
 
 void	clear_stack(t_stack *stack);
 void	add_front(t_stack *stack, t_node *new);
@@ -85,7 +86,6 @@ void	alg_complex(t_data *data);
 void	alg_adaptive(t_data *data);
 void	bench(t_data *data, char *strategy);
 void	flag_management(t_data *data);
-void	lst_to_int(t_data *data);
 
 int		main(int argc, char **argv);
 int		print_error(int	err_id, t_data *data);
@@ -96,6 +96,10 @@ int		swap(t_stack *stack);
 int		rotate(t_stack *stack);
 int		reverse_rotate(t_stack *stack);
 
+int		*lst_to_int(t_data *data);
+
 long	ft_atol(char *nptr);
+
+double	index_disorder(int *array, int size);
 
 #endif

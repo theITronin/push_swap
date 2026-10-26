@@ -12,9 +12,23 @@
 
 #include "push_swap.h"
 
-void	lst_to_int(t_data *data)
+int	*lst_to_int(t_data *data)
 {
+	t_node	*node;
+	int		i;
+	int		*array;
 
+	i = 0;
+	array = (int *)malloc(data->a->size * sizeof(int));
+	if (!array)
+		return (NULL);
+	while (i < data->a->size)
+	{
+		node = get_node_at(data->a, i);
+		array[i] = node->value;
+		i++;
+	}
+	return (array);
 }
 
 double	index_disorder(int *array, int size)

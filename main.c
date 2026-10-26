@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	init_data(data);
 	parse_params(argc, argv, data);
 	print_stack(data->a);
-	index_disorder(data);
+	data->disorder = index_disorder(lst_to_int(data), data->a->size);
 	flag_management(data);
 	return (0);
 }
