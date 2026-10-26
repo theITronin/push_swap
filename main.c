@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:04 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/25 13:29:56 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/26 12:15:19 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	init_data(t_data *data)
 	a = (t_stack *)ft_calloc(sizeof(t_stack), 1);
 	if (!a)
 		print_error(-1, data);
+	data->a = a;
 	b = (t_stack *)ft_calloc(sizeof(t_stack), 1);
 	if (!b)
 		print_error(-1, data);
-	data->id_flag = INVALID_FLAG;
-	data->a = a;
 	data->b = b;
+	data->id_flag = INVALID_FLAG;
 }
 
 int	main(int argc, char **argv)
