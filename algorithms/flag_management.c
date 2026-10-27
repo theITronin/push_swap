@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:23:20 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/27 17:39:35 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/27 18:36:49 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	flag_management(t_data *data)
 {
-	unsigned char	*strategy;
-
-	strategy = NULL;
 	if (data->id_flag == SIMPLE)
 		alg_simple(data);
 	else if (data->id_flag == MEDIUM)

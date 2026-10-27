@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:40:19 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/27 15:35:09 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/27 18:48:45 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	print_error(int	err_id, t_data *data)
+void	print_error(int	err_id, t_data *data)
 {
 	write (2, "Error\n", 6);
 	
@@ -27,7 +27,7 @@ int	print_error(int	err_id, t_data *data)
 	exit(err_id);
 }
 
-int	parse_flag(char *flag, t_data *data)
+void	parse_flag(char *flag, t_data *data)
 {
 	if (!flag || !data)
 		print_error(-3, data);
@@ -42,12 +42,15 @@ int	parse_flag(char *flag, t_data *data)
 		else if (ft_strcmp(flag, "--adaptive") == 0)
 			data->id_flag = ADAPTIVE;
 		if (data->id_flag >= 0)
-			return (1);
+			return ;
 	}
 	if (data->check_bench == 0 && ft_strcmp(flag, "--bench") == 0)
-		return (data->check_bench = 1);
-	return (print_error(-3, data));
-};
+	{
+		data->check_bench = 1;
+		return ;
+	}
+	print_error(-3, data);
+}
 
 void	parse_params(int argc, char **argv, t_data *data)
 {

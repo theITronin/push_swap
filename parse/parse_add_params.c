@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 18:40:59 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/25 11:52:05 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/27 18:51:13 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,12 @@ void	add_nodes(char **numbers, t_data *data)
 		if (!tmp)
 			print_error(-1, data);
 		if (check_number(data->a, n))
+		{
 			print_error(-1, data);
+			free(tmp);
+		}
 		add_back(data->a, tmp);
+		free(tmp);
 		i++;
 	}
 
