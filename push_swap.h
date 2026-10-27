@@ -95,6 +95,7 @@ int		push(t_stack *stack_dst, t_stack *stack_src);
 int		swap(t_stack *stack);
 int		rotate(t_stack *stack);
 int		reverse_rotate(t_stack *stack);
+int		find_min_node(t_data *data);
 
 int		*lst_to_int(t_data *data);
 

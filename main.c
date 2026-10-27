@@ -41,8 +41,8 @@ int	main(int argc, char **argv)
 		print_error(-1, data);
 	init_data(data);
 	parse_params(argc, argv, data);
-	print_stack(data->a);
 	data->disorder = index_disorder(lst_to_int(data), data->a->size);
 	flag_management(data);
+	print_stack(data->a);
 	return (0);
 }

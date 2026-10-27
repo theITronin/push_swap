@@ -26,8 +26,8 @@ int	find_min_node(t_data *data)
 	i++;
     while (i <= data->a->size)
 	{
-		node = get_node_at(data->a, i)
-		if (min_node->size > node->size)
+		node = get_node_at(data->a, i);
+		if (min_node->value > node->value)
 		{
 			min_node = node;
 			index = i;
@@ -39,8 +39,8 @@ int	find_min_node(t_data *data)
 
 void	alg_simple(t_data *data)
 {
-	int	index;
-	t_node	node;
+	int		index;
+	t_node	*node;
 
 	while (data->a->size != 0)
 	{
@@ -56,12 +56,7 @@ void	alg_simple(t_data *data)
 			while (node != data->a->head)
 				rra(data);
 		}
-	t_node	*temp;
-
-	if (!stack_dst || !stack_src || !stack_src->head || stack_dst == stack_src)
-		return (0);
-		pa(data);
+		while (data->b->size != 0)
+			pb(data);
 	}
-	while (data->b->size != 0)
-		pb(data);
 }
