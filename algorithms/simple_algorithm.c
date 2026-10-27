@@ -3,60 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbv <pbv@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:29:52 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/25 18:21:27 by pbv              ###   ########.fr       */
+/*   Updated: 2026/10/27 15:52:14 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
+#include "../push_swap.h"
 
 int	find_min_node(t_data *data)
 {
-	int		i;
-	int		index;
-	t_node	*min_node;
 	t_node	*node;
-
+	int		i;
+	int		min_index;
+	int		min_value;
+	
+	node = data->a->head;
+    if (node == NULL)
+		return (-1);
+	min_value = node->value;
+	min_index = 0;
 	i = 0;
-	index = 0;
-	min_node = get_node_at(data->a, i);
-	i++;
-    while (i <= data->a->size)
+	while (i < data->a->size)
 	{
-		node = get_node_at(data->a, i);
-		if (min_node->value > node->value)
+		if (node->value < min_value)
 		{
-			min_node = node;
-			index = i;
+			min_value = node->value;
+			min_index = i;
 		}
+		node = node->next;
 		i++;
 	}
-	return (index);
+	return (min_index);
 }
 
 void	alg_simple(t_data *data)
 {
-	int		index;
-	t_node	*node;
+	int	index;
+	int	size;	
 
-	while (data->a->size != 0)
+	while (data->a->size > 0)
 	{
 		index = find_min_node(data);
-		node = get_node_at(data->a, index);
-		if (index > data->a->size / 2)
+		size = data->a->size;
+		if (index > size / 2)
 		{
-			while (node != data->a->head)
-				ra(data);
+			index = size - index;
+			while (index-- > 0)
+				rra(data->a);
 		}
-		else if (index <= data->a->size / 2)
+		else
 		{
-			while (node != data->a->head)
-				rra(data);
+			while (index-- > 0)
+				ra(data->a);
 		}
-		while (data->b->size != 0)
-			pb(data);
+		pb(data);
 	}
+	while (data->b->size > 0)
+		pa(data);
+	
 }
