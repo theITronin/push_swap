@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:29:52 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/27 15:52:14 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/27 17:34:20 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ void	alg_simple(t_data *data)
 		{
 			index = size - index;
 			while (index-- > 0)
-				rra(data->a);
+				rra(data);
 		}
 		else
 		{
 			while (index-- > 0)
-				ra(data->a);
+				ra(data);
 		}
 		pb(data);
 	}

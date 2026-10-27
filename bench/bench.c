@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:31:22 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/26 16:19:00 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/27 17:51:09 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,20 @@ int	total_ops(t_data *data)
 	return (n);
 }
 
-void	bench(t_data *data, unsigned char *strategy)
+void	bench(t_data *data)
 {
 	int	disorder;
 
 	disorder = data->disorder * 10000;
 	ft_printf("[bench] disorder: %d.%d\n", disorder / 100, disorder % 100);
-	ft_printf("[bench] strategy: %s\n", strategy);
+	if (data->id_flag == SIMPLE)
+		ft_printf("[bench] Simple / O(n^2)\n");
+	else if (data->id_flag == MEDIUM)
+		ft_printf("[bench] Medium / O(n√n)\n");
+	else if (data->id_flag == COMPLEX)
+		ft_printf("[bench] Complex / O(n log n)\n");
+	else
+		ft_printf("[bench] Adaptive / \n"); // Adaptive manage of the big O notation in bench is missing.
 	ft_printf("[bench] total_ops: %d\n", total_ops(data));
 	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d \n", 
 		data->ops_counter[2], data->ops_counter[3], data->ops_counter[4], data->ops_counter[0], data->ops_counter[1]);

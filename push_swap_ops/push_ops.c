@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 10:15:23 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/26 16:11:51 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/27 17:49:02 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void	pa(t_data *data)
 	{
 		data->ops_counter[0]++;
 		if (!data->check_bench)
-			write(2, __func__, 2);
+		{
+			write(2, __func__, 3);
+			write(1, "\n", 1);
+		}
 	}
 }
 
@@ -28,7 +31,10 @@ void	pb(t_data *data)
 	{
 		data->ops_counter[1]++;
 		if (!data->check_bench)
-			write(2, __func__, 2);
+		{
+			write(2, __func__, 3);
+			write(1, "\n", 1);
+		}
 	}
 }
 
