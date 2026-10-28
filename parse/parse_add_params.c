@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_add_params.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 18:40:59 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/27 18:51:13 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/28 11:00:08 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

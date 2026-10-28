@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:40:19 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/27 18:48:45 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/28 10:59:24 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,15 @@ void	memory_free(t_data *data)
 	if (data)
 	{
 		if (data->a)
+		{
 			clear_stack(data->a);
+			free(data->a);
+		}
 		if (data->b)
+		{
 			clear_stack(data->b);
+			free(data->b);
+		}
 		free(data);
 	}
 }
