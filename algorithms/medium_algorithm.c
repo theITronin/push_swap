@@ -12,8 +12,28 @@
 
 #include "push_swap.h"
 
+int	ft_sqrt(int nb)
+{
+	int	n;
+
+	if (nb < 0)
+		return (0);
+	n = 1;
+	while (n <= 46340)
+	{
+		if (nb == n * n)
+			return (n);
+		if (nb < n * n)
+			return (0);
+		n++;
+	}
+	return (0);
+}
+
 void	alg_medium(t_data *data)
 {
-	push(data->a, data->b);
-    swap(data->a);
+	int k;
+    int i;
+
+    k = ft_sqrt(data->a->size);   
 }
