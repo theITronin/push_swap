@@ -15,7 +15,12 @@
 void	print_error(int	err_id, t_data *data)
 {
 	write (2, "Error\n", 6);
-	
+	memory_free(data);
+	exit(err_id);
+}
+
+void	memory_free(t_data *data)
+{
 	if (data)
 	{
 		if (data->a)
@@ -24,7 +29,6 @@ void	print_error(int	err_id, t_data *data)
 			clear_stack(data->b);
 		free(data);
 	}
-	exit(err_id);
 }
 
 void	parse_flag(char *flag, t_data *data)
