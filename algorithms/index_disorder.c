@@ -6,30 +6,11 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 15:02:51 by pabbenit          #+#    #+#             */
-/*   Updated: 2026/10/25 09:36:08 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/28 17:26:11 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	*lst_to_int(t_data *data)
-{
-	t_node	*node;
-	int		i;
-	int		*array;
-
-	i = 0;
-	array = (int *)malloc(data->a->size * sizeof(int));
-	if (!array)
-		return (NULL);
-	while (i < data->a->size)
-	{
-		node = get_node_at(data->a, i);
-		array[i] = node->value;
-		i++;
-	}
-	return (array);
-}
 
 double	index_disorder(int *array, int size)
 {

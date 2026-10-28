@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbv <pbv@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:29:03 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/25 18:22:06 by pbv              ###   ########.fr       */
+/*   Updated: 2026/10/28 18:24:02 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	ft_sqrt(int nb)
 void	alg_medium(t_data *data)
 {
 	int k;
-    int i;
-
+	
     k = ft_sqrt(data->a->size);   
 }

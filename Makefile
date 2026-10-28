@@ -7,7 +7,7 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SOURCES = main.c lst_utils.c lst_utils_2.c parse/parse.c  \
+SOURCES = main.c lst_utils.c lst_utils_2.c parse/parse.c parse/parse_add_array.c \
 		  parse/parse_add_params.c push_swap_ops/op_management.c \
 		  push_swap_ops/push_ops.c push_swap_ops/rotate_ops.c \
 		  push_swap_ops/swap_ops.c push_swap_ops/rev_rotate_ops.c \

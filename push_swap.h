@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/27 17:39:30 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/28 18:23:46 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef enum e_flags
 typedef struct	s_node
 {
 	int				value;
+	int				n_index;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
@@ -87,18 +88,18 @@ void	alg_adaptive(t_data *data);
 void	bench(t_data *data);
 void	flag_management(t_data *data);
 void	memory_free(t_data *data);
+void	ft_sort_int_tab(int *tab, int size);
+void	print_error(int	err_id, t_data *data);
+void	parse_flag(char *flag, t_data *data);
+void	lst_to_int(t_data *data);
 
 int		main(int argc, char **argv);
-int		print_error(int	err_id, t_data *data);
-int		parse_flag(char *flag, t_data *data);
 int		check_number(t_stack *stack, int value);
 int		push(t_stack *stack_dst, t_stack *stack_src);
 int		swap(t_stack *stack);
 int		rotate(t_stack *stack);
 int		reverse_rotate(t_stack *stack);
 int		find_min_node(t_data *data);
-
-int		*lst_to_int(t_data *data);
 
 long	ft_atol(char *nptr);
 

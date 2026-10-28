@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:40:19 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/28 10:59:24 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/28 19:03:20 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

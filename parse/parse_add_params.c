@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_add_params.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 18:40:59 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/28 11:00:08 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/28 19:05:13 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,8 @@ void	add_nodes(char **numbers, t_data *data)
 			free(tmp);
 		}
 		add_back(data->a, tmp);
-		free(tmp);
 		i++;
 	}
-
 }
 
 void	split_params(char *raw_num, t_data *data)
