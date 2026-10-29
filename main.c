@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:04 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/28 19:59:44 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/29 20:14:57 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	main(int argc, char **argv)
 	parse_params(argc, argv, data);
 	lst_to_int(data);
 	flag_management(data);
-	print_stack(data->a);
 	memory_free(data);
 	return (0);
 }

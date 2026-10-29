@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:29:03 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/28 18:24:02 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/29 20:21:33 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,55 +30,79 @@ int	ft_sqrt(int nb)
 	return (0);
 }
 
-void	sort_b(data)
+int	find_max_node(t_data *data)
 {
-
+	t_node	*node;
+	int		i;
+	int		max_index;
+	int		max_value;
+	
+	node = data->b->head;
+    if (node == NULL)
+		return (-1);
+	max_value = node->value;
+	max_index = 0;
+	i = 0;
+	while (i < data->b->size)
+	{
+		if (node->value > max_value)
+		{
+			max_value = node->value;
+			max_index = i;
+		}
+		node = node->next;
+		i++;
+	}
+	return (max_index);
 }
 
-void	push_node(int	node_index, t_data *data)
+void	sort_b(t_data *data)
 {
-	int	size;
+	int	index;
+	int	size;	
 
-	size = data->a->size;
-	if (node_index > size / 2)
+	while (data->b->size > 0)
 	{
-		node_index = size - node_index;
-		while (node_index-- > 0)
-			rra(data);
+		index = find_max_node(data);
+		size = data->b->size;
+		if (index > size / 2)
+		{
+			index = size - index;
+			while (index-- > 0)
+				rrb(data);
+		}
+		else
+		{
+			while (index-- > 0)
+				rb(data);
+		}
+		pa(data);
 	}
-	else
-	{
-		while (node_index-- > 0)
-			ra(data);
-	}
-	pb(data);
 }
 
 void	alg_medium(t_data *data)
 {
 	int		k;
-	int		node_index;
-	int		chunks;
+	int		k_index;
+	int		size;
 	t_node	*node;
 
     k = ft_sqrt(data->a->size);
-	chunks = data->a->size / k;
-	while (chunks > 0)
+	k_index = 0;
+	while (data->a->size > 0)
 	{
-		node = data->a->head;
-		k = k + k;
-		node_index = 0;
-		while (node)
+		size = 0;
+		k_index = k_index + k;
+		while (size <= data->a->size)
 		{
-			if (node->n_index < k)
-			{
-				node = node->next;
-				push_node(node_index, data);
-			}
-			node_index++;
-			node = node->next;
+			node = data->a->head;
+			if (node->n_index < k_index)
+				pb(data);
+			else
+				ra(data);
+			size++;
 		}
-		sort_b(data);
-		chunks--;
 	}
+	sort_b(data);
 }
+

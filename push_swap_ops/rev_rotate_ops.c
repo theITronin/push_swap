@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 10:16:41 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/27 17:48:52 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/29 18:20:07 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,8 @@ void	rra(t_data *data)
 	data->ops_counter[8]++;
 	if (reverse_rotate(data->a))
 	{
-		if (!data->check_bench)
-		{
-			write(2, __func__, 3);
-			write(1, "\n", 1);
-		}
+		write(2, __func__, 3);
+	write(1, "\n", 1);
 	}
 }
 
@@ -30,11 +27,8 @@ void	rrb(t_data *data)
 	data->ops_counter[9]++;
 	if (reverse_rotate(data->b))
 	{
-		if (!data->check_bench)
-		{
-			write(2, __func__, 3);
-			write(1, "\n", 1);
-		}
+		write(2, __func__, 3);
+		write(1, "\n", 1);
 	}
 }
 
@@ -48,10 +42,7 @@ void	rrr(t_data *data)
 	result2 = reverse_rotate(data->b);
 	if (result1 == 1 && result2 == 1)
 	{
-		if (!data->check_bench)
-		{
-			write(2, __func__, 3);
-			write(1, "\n", 1);
-		}
+		write(2, __func__, 3);
+		write(1, "\n", 1);
 	}
 }

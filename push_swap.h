@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/28 18:23:46 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/29 19:25:47 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	ft_sort_int_tab(int *tab, int size);
 void	print_error(int	err_id, t_data *data);
 void	parse_flag(char *flag, t_data *data);
 void	lst_to_int(t_data *data);
+void	sort_b(t_data *data);
 
 int		main(int argc, char **argv);
 int		check_number(t_stack *stack, int value);
@@ -101,6 +102,7 @@ int		rotate(t_stack *stack);
 int		reverse_rotate(t_stack *stack);
 int		find_min_node(t_data *data);
 int		ft_sqrt(int nb);
+int		find_max_node(t_data *data);
 
 long	ft_atol(char *nptr);
 
