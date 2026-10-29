@@ -100,6 +100,7 @@ int		swap(t_stack *stack);
 int		rotate(t_stack *stack);
 int		reverse_rotate(t_stack *stack);
 int		find_min_node(t_data *data);
+int		ft_sqrt(int nb);
 
 long	ft_atol(char *nptr);
 
