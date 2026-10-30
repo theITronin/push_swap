@@ -7,13 +7,24 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SOURCES = main.c lst_utils.c lst_utils_2.c parse/parse.c parse/parse_add_array.c \
-		  parse/parse_add_params.c push_swap_ops/op_management.c \
-		  push_swap_ops/push_ops.c push_swap_ops/rotate_ops.c \
-		  push_swap_ops/swap_ops.c push_swap_ops/rev_rotate_ops.c \
-		  algorithms/complex_algorithm.c algorithms/medium_algorithm.c \
-		  algorithms/simple_algorithm.c algorithms/adaptive_algorithm.c \
-		  algorithms/flag_management.c algorithms/index_disorder.c bench/bench.c
+SOURCES = push_swap.c \ 
+		  lst_utils/lst_utils.c \
+		  lst_utils/lst_utils_2.c \
+		  parse/parse.c \
+		  parse/parse_add_array.c \
+		  parse/parse_add_params.c \
+		  push_swap_ops/op_management.c \
+		  push_swap_ops/push_ops.c \
+		  push_swap_ops/rotate_ops.c \
+		  push_swap_ops/swap_ops.c \
+		  push_swap_ops/rev_rotate_ops.c \
+		  algorithms/complex_algorithm.c \
+		  algorithms/medium_algorithm.c \
+		  algorithms/simple_algorithm.c \
+		  algorithms/adaptive_algorithm.c \
+		  algorithms/flag_management.c \
+		  algorithms/index_disorder.c \
+		  bench/bench.c
 
 OBJS = $(SOURCES:.c=.o)
 

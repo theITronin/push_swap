@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:29:03 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 11:12:07 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/30 16:59:07 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	alg_medium(t_data *data)
 {
 	int		k;
 	int		k_index;
-	int		pushed; //contador para los push_b hasta tamaño de chunk maximo
+	int		pushed;
 
     k = ft_sqrt(data->a->size);
 	k_index = 0;
@@ -95,7 +95,7 @@ void	alg_medium(t_data *data)
 			if (data->a->head->n_index < k_index)
 			{
 				pb(data);
-				pushed++; // la comparacion antigua (size < data->a->size) lo hacia mal: size->a y size se "encontraban" antes de tiempo aunque luego sotb ordenaba igual.
+				pushed++;
 			}
 			else
 				ra(data);
