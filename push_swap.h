@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/29 19:25:47 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/30 13:56:21 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ typedef enum e_flags
 {
 	INVALID_FLAG = -1,
 	SIMPLE,
-	MEDIUM, 
-	COMPLEX, 
+	MEDIUM,
+	COMPLEX,
 	ADAPTIVE
 }	t_flags;
 
@@ -104,6 +104,7 @@ int		reverse_rotate(t_stack *stack);
 int		find_min_node(t_data *data);
 int		ft_sqrt(int nb);
 int		find_max_node(t_data *data);
+int		get_max_bits(int size);
 
 long	ft_atol(char *nptr);
 

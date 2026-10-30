@@ -6,7 +6,7 @@
 /*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 14:37:07 by pabbenit          #+#    #+#             */
-/*   Updated: 2026/10/30 11:13:13 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/30 14:12:19 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_op_name(const char *str)
 {
-	write(2, str, 3);
+	write(1, str, ft_strlen(str));
 	write(1, "\n", 1);
 }
 
