@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 15:43:18 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/18 10:23:45 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/30 19:02:22 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,17 @@ int				print_unsigned_n(unsigned int n);
 int				print_pointer(unsigned long n);
 int				print_char(char c);
 int				ft_strcmp(const char *s1, const char *s2);
+int				ft_printf_error(char const *format, ...);
+int				foud_type_error(char c, va_list args);
+int				print_string_error(char *str);
+int				print_numbers_error(int n);
+int				print_nbr_hexadecimal_error(unsigned int n, char c);
+int				ft_putnbr_base_error(unsigned int nbr, char *base);
+int				print_long_hexadecimal_error(unsigned long n, char c);
+int				ft_putlong_base_error(unsigned long nbr, char *base);
+int				print_unsigned_n_error(unsigned int n);
+int				print_pointer_error(unsigned long n);
+int				print_char_error(char c);
 
 unsigned int	ft_lstsize(t_list *lst);
 

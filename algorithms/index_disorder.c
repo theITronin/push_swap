@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 15:02:51 by pabbenit          #+#    #+#             */
-/*   Updated: 2026/10/28 17:26:11 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/30 19:51:00 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ double	index_disorder(int *array, int size)
 	int	j;
 
 	if (size < 2)
-    	return (0.0);
+		return (0.0);
 	mistakes = 0;
 	total_pairs = 0;
 	i = 0;

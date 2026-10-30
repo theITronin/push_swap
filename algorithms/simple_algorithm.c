@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:29:52 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 16:21:00 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/30 19:51:31 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	find_min_node(t_data *data)
 	int		i;
 	int		min_index;
 	int		min_value;
-	
+
 	node = data->a->head;
-    if (node == NULL)
+	if (node == NULL)
 		return (-1);
 	min_value = node->value;
 	min_index = 0;
@@ -62,5 +62,4 @@ void	alg_simple(t_data *data)
 	}
 	while (data->b->size > 0)
 		pa(data);
-	
 }

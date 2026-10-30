@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:29:03 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 16:59:07 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/30 19:52:36 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	find_max_node(t_data *data)
 	int		max_value;
 
 	node = data->b->head;
-    if (node == NULL)
+	if (node == NULL)
 		return (-1);
 	max_value = node->value;
 	max_index = 0;
@@ -84,7 +84,7 @@ void	alg_medium(t_data *data)
 	int		k_index;
 	int		pushed;
 
-    k = ft_sqrt(data->a->size);
+	k = ft_sqrt(data->a->size);
 	k_index = 0;
 	while (data->a->size > 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 18:40:59 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 16:00:15 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/30 20:00:11 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,3 @@ void	split_params(char *raw_num, t_data *data)
 	add_nodes(numbers, data);
 	free_params(numbers);
 }
-

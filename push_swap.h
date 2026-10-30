@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 16:18:44 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/30 19:53:31 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <fcntl.h>
 # include "libft/libft.h"
 
 typedef enum e_flags
@@ -28,8 +29,7 @@ typedef enum e_flags
 	ADAPTIVE
 }	t_flags;
 
-
-typedef struct	s_node
+typedef struct s_node
 {
 	int				value;
 	int				n_index;
@@ -44,12 +44,13 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	t_stack		*a;
 	t_stack		*b;
 	t_flags		id_flag;
 	int			check_bench;
+	int			check_bonus;
 	double		disorder;
 	int			ops_counter[11];
 }	t_data;
@@ -89,11 +90,13 @@ void	bench(t_data *data);
 void	flag_management(t_data *data);
 void	memory_free(t_data *data);
 void	ft_sort_int_tab(int *tab, int size);
-void	print_error(int	err_id, t_data *data);
+void	print_error(int err_id, t_data *data);
 void	parse_flag(char *flag, t_data *data);
 void	lst_to_int(t_data *data);
 void	sort_b(t_data *data);
-void	print_op_name(const char *str);
+void	print_op_name(const char *str, t_data *data);
+void	check_ops(t_data *data, char *op);
+void	read_ops(t_data *data);
 
 int		main(int argc, char **argv);
 int		check_number(t_stack *stack, int value);
@@ -110,6 +113,6 @@ long	ft_atol(char *nptr);
 
 double	index_disorder(int *array, int size);
 
-char	*print_O_adaptive(t_data *data);
+char	*print_o_adaptive(t_data *data);
 
 #endif

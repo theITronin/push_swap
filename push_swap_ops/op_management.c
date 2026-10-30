@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   op_management.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 14:37:07 by pabbenit          #+#    #+#             */
-/*   Updated: 2026/10/30 14:12:19 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/30 19:03:46 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_op_name(const char *str)
+void	print_op_name(const char *str, t_data *data)
 {
-	write(1, str, ft_strlen(str));
-	write(1, "\n", 1);
+	if (!data->check_bonus)
+		ft_printf("%s\n", str);
 }
 
 int	push(t_stack *stack_dst, t_stack *stack_src)

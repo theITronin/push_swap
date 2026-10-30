@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:31:22 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/27 17:51:09 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/30 19:56:15 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int	total_ops(t_data *data)
 	return (n);
 }
 
-char	*print_O_adaptive(t_data *data)
+char	*print_o_adaptive(t_data *data)
 {
 	if (data->disorder < 0.2)
-       return ("O(n^2)\n");
-    else if (data->disorder < 0.5)
-        return ("O(n√n)\n");
-    else
-        return ("O(n log n)\n");
+		return ("O(n^2)\n");
+	else if (data->disorder < 0.5)
+		return ("O(n√n)\n");
+	else
+		return ("O(n log n)\n");
 }
 
 void	bench(t_data *data)
@@ -42,19 +42,21 @@ void	bench(t_data *data)
 	int	disorder;
 
 	disorder = data->disorder * 10000;
-	ft_printf("[bench] disorder: %d.%d\n", disorder / 100, disorder % 100);
+	ft_printf_error("[bench] disorder: %d.%d%%\n",
+		disorder / 100, disorder % 100);
 	if (data->id_flag == SIMPLE)
-		ft_printf("[bench] Simple / O(n^2)\n");
+		ft_printf_error("[bench] Simple / O(n^2)\n");
 	else if (data->id_flag == MEDIUM)
-		ft_printf("[bench] Medium / O(n√n)\n");
+		ft_printf_error("[bench] Medium / O(n√n)\n");
 	else if (data->id_flag == COMPLEX)
-		ft_printf("[bench] Complex / O(n log n)\n");
+		ft_printf_error("[bench] Complex / O(n log n)\n");
 	else
-		ft_printf("[bench] Adaptive / %s", print_O_adaptive(data));
-	ft_printf("[bench] total_ops: %d\n", total_ops(data));
-	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d \n", 
-		data->ops_counter[2], data->ops_counter[3], data->ops_counter[4], data->ops_counter[0], data->ops_counter[1]);
-	ft_printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n", 
-		data->ops_counter[5], data->ops_counter[6], data->ops_counter[7], data->ops_counter[8], data->ops_counter[9], data->ops_counter[10]);
+		ft_printf_error("[bench] Adaptive / %s", print_o_adaptive(data));
+	ft_printf_error("[bench] total_ops: %d\n", total_ops(data));
+	ft_printf_error("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d \n",
+		data->ops_counter[2], data->ops_counter[3], data->ops_counter[4],
+		data->ops_counter[0], data->ops_counter[1]);
+	ft_printf_error("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+		data->ops_counter[5], data->ops_counter[6], data->ops_counter[7],
+		data->ops_counter[8], data->ops_counter[9], data->ops_counter[10]);
 }
-

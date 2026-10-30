@@ -6,15 +6,15 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:40:19 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/28 19:03:20 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/30 19:59:59 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_error(int	err_id, t_data *data)
+void	print_error(int err_id, t_data *data)
 {
-	write (2, "Error\n", 6);
+	ft_printf_error("%s", "Error\n");
 	memory_free(data);
 	exit(err_id);
 }
@@ -64,7 +64,7 @@ void	parse_flag(char *flag, t_data *data)
 
 void	parse_params(int argc, char **argv, t_data *data)
 {
-	int i;
+	int	i;
 	int	j;
 
 	i = 1;
@@ -77,8 +77,8 @@ void	parse_params(int argc, char **argv, t_data *data)
 		{
 			while (argv[i][j] != '\0')
 			{
-				if ((ft_isdigit(argv[i][j])) || ((j == 0 || argv[i][j - 1] == ' ')
-					&& argv[i][j] == '-' && ft_isdigit(argv[i][j + 1])))
+				if ((ft_isdigit(argv[i][j])) || ((j == 0 || argv[i][j - 1] ==
+					' ') && argv[i][j] == '-' && ft_isdigit(argv[i][j + 1])))
 					j++;
 				else if (argv[i][j] == ' ')
 					j++;
@@ -91,3 +91,20 @@ void	parse_params(int argc, char **argv, t_data *data)
 	}
 }
 
+void	init_data(t_data *data)
+{
+	t_stack	*a;
+	t_stack	*b;
+
+	data->a = NULL;
+	data->b = NULL;
+	a = (t_stack *)ft_calloc(sizeof(t_stack), 1);
+	if (!a)
+		print_error(-1, data);
+	data->a = a;
+	b = (t_stack *)ft_calloc(sizeof(t_stack), 1);
+	if (!b)
+		print_error(-1, data);
+	data->b = b;
+	data->id_flag = INVALID_FLAG;
+}

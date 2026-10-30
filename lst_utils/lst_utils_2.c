@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_utils_2.c                                :+:      :+:    :+:   */
+/*   lst_utils_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 14:44:00 by pabbenit          #+#    #+#             */
-/*   Updated: 2026/10/20 14:46:23 by pabbenit         ###   ########.fr       */
+/*   Created: 2026/10/30 20:03:42 by dbustama          #+#    #+#             */
+/*   Updated: 2026/10/30 20:04:10 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_node	*create_node(int value)
 
 	node = malloc(sizeof(t_node));
 	if (node == NULL)
-		return NULL;
+		return (NULL);
 	node->value = value;
 	node->next = NULL;
 	node->prev = NULL;

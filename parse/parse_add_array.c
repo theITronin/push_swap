@@ -6,12 +6,11 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 17:25:23 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/29 17:54:05 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/30 20:00:42 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	ft_sort_int_tab(int *tab, int size)
 {
@@ -37,7 +36,7 @@ void	ft_sort_int_tab(int *tab, int size)
 	}
 }
 
-void	find_index(int *array , t_data *data)
+void	find_index(int *array, t_data *data)
 {
 	int		i;
 	t_node	*node;
@@ -51,7 +50,7 @@ void	find_index(int *array , t_data *data)
 			if (array[i] == node->value)
 				node->n_index = i;
 			node = node->next;
-		}		
+		}
 		i++;
 	}
 }
