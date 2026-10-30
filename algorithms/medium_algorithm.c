@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pbv <pbv@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:29:03 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/29 20:21:33 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/30 10:25:01 by pbv              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,16 @@ int	ft_sqrt(int nb)
 {
 	int	n;
 
-	if (nb < 0)
+	if (nb <= 0)
 		return (0);
 	n = 1;
-	while (n <= 46340)
+	while (n <= nb / n)
 	{
 		if (nb == n * n)
 			return (n);
-		if (nb < n * n)
-			return (n);
 		n++;
 	}
-	return (0);
+	return (n);
 }
 
 int	find_max_node(t_data *data)
@@ -36,7 +34,7 @@ int	find_max_node(t_data *data)
 	int		i;
 	int		max_index;
 	int		max_value;
-	
+
 	node = data->b->head;
     if (node == NULL)
 		return (-1);
@@ -59,7 +57,7 @@ int	find_max_node(t_data *data)
 void	sort_b(t_data *data)
 {
 	int	index;
-	int	size;	
+	int	size;
 
 	while (data->b->size > 0)
 	{
@@ -84,25 +82,23 @@ void	alg_medium(t_data *data)
 {
 	int		k;
 	int		k_index;
-	int		size;
-	t_node	*node;
+	int		pushed; //contador para los push_b hasta tamaño de chunk maximo
 
     k = ft_sqrt(data->a->size);
 	k_index = 0;
 	while (data->a->size > 0)
 	{
-		size = 0;
-		k_index = k_index + k;
-		while (size <= data->a->size)
+		k_index += k;
+		while (pushed < k && data->a->size > 0)
 		{
-			node = data->a->head;
-			if (node->n_index < k_index)
+			if (data->a->head->n_index < k_index)
+			{
 				pb(data);
+				pushed++; // la comparacion antigua (size < data->a->size) lo hacia mal: size->a y size se "encontraban" antes de tiempo aunque luego sotb ordenaba igual.
+			}
 			else
 				ra(data);
-			size++;
 		}
 	}
 	sort_b(data);
 }
-
