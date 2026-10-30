@@ -27,6 +27,16 @@ int	total_ops(t_data *data)
 	return (n);
 }
 
+char	*print_O_adaptive(t_data *data)
+{
+	if (data->disorder < 0.2)
+       return ("O(n^2)\n");
+    else if (data->disorder < 0.5)
+        return ("O(n√n)\n");
+    else
+        return ("O(n log n)\n");
+}
+
 void	bench(t_data *data)
 {
 	int	disorder;
@@ -40,7 +50,7 @@ void	bench(t_data *data)
 	else if (data->id_flag == COMPLEX)
 		ft_printf("[bench] Complex / O(n log n)\n");
 	else
-		ft_printf("[bench] Adaptive / \n"); // Adaptive manage of the big O notation in bench is missing.
+		ft_printf("[bench] Adaptive / %s", print_O_adaptive(data));
 	ft_printf("[bench] total_ops: %d\n", total_ops(data));
 	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d \n", 
 		data->ops_counter[2], data->ops_counter[3], data->ops_counter[4], data->ops_counter[0], data->ops_counter[1]);

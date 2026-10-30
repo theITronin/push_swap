@@ -17,8 +17,7 @@ void	pa(t_data *data)
 	if (push(data->a, data->b))
 	{
 		data->ops_counter[0]++;
-		write(2, __func__, 3);
-		write(1, "\n", 1);
+		print_op_name(__func__);
 	}
 }
 
@@ -27,8 +26,7 @@ void	pb(t_data *data)
 	if (push(data->b, data->a))
 	{
 		data->ops_counter[1]++;
-		write(2, __func__, 3);
-		write(1, "\n", 1);
+		print_op_name(__func__);
 	}
 }
 

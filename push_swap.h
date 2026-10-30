@@ -93,6 +93,7 @@ void	print_error(int	err_id, t_data *data);
 void	parse_flag(char *flag, t_data *data);
 void	lst_to_int(t_data *data);
 void	sort_b(t_data *data);
+void	print_op_name(const char *str);
 
 int		main(int argc, char **argv);
 int		check_number(t_stack *stack, int value);
@@ -107,5 +108,7 @@ int		find_max_node(t_data *data);
 long	ft_atol(char *nptr);
 
 double	index_disorder(int *array, int size);
+
+char	*print_O_adaptive(t_data *data);
 
 #endif

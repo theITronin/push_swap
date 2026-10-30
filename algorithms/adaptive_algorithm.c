@@ -14,6 +14,10 @@
 
 void	alg_adaptive(t_data *data)
 {
-	push(data->a, data->b);
-    swap(data->a);
+	if (data->disorder < 0.2)
+        alg_simple(data);
+    else if (data->disorder < 0.5)
+        alg_medium(data);
+    else
+        alg_complex(data);
 }

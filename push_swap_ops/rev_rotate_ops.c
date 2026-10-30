@@ -17,8 +17,7 @@ void	rra(t_data *data)
 	data->ops_counter[8]++;
 	if (reverse_rotate(data->a))
 	{
-		write(2, __func__, 3);
-	write(1, "\n", 1);
+		print_op_name(__func__);
 	}
 }
 
@@ -27,8 +26,7 @@ void	rrb(t_data *data)
 	data->ops_counter[9]++;
 	if (reverse_rotate(data->b))
 	{
-		write(2, __func__, 3);
-		write(1, "\n", 1);
+		print_op_name(__func__);
 	}
 }
 
@@ -42,7 +40,6 @@ void	rrr(t_data *data)
 	result2 = reverse_rotate(data->b);
 	if (result1 == 1 && result2 == 1)
 	{
-		write(2, __func__, 3);
-		write(1, "\n", 1);
+		print_op_name(__func__);
 	}
 }

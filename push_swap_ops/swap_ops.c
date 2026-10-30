@@ -17,8 +17,7 @@ void	sa(t_data *data)
 	if (swap(data->a))
 	{
 		data->ops_counter[2]++;
-		write(2, __func__, 3);
-		write(1, "\n", 1);
+		print_op_name(__func__);
 	}
 }
 
@@ -27,8 +26,7 @@ void	sb(t_data *data)
 	if (swap(data->b))
 	{
 		data->ops_counter[3]++;
-		write(2, __func__, 3);
-		write(1, "\n", 1);
+		print_op_name(__func__);
 	}
 }
 
@@ -42,7 +40,6 @@ void	ss(t_data *data)
 	data->ops_counter[4]++;
 	if (result1 == 1 && result2 == 1)
 	{
-		write(2, __func__, 3);
-		write(1,"\n", 1);
+		print_op_name(__func__);
 	}
 }

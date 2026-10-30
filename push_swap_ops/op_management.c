@@ -12,6 +12,12 @@
 
 #include "push_swap.h"
 
+void	print_op_name(const char *str)
+{
+	write(2, str, 3);
+	write(1, "\n", 1);
+}
+
 int	push(t_stack *stack_dst, t_stack *stack_src)
 {
 	t_node	*temp;
