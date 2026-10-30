@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbv <pbv@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:29:03 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 10:25:01 by pbv              ###   ########.fr       */
+/*   Updated: 2026/10/30 11:12:07 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	alg_medium(t_data *data)
 	k_index = 0;
 	while (data->a->size > 0)
 	{
+		pushed = 0;
 		k_index += k;
 		while (pushed < k && data->a->size > 0)
 		{

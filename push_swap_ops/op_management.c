@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_management.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 14:37:07 by pabbenit          #+#    #+#             */
-/*   Updated: 2026/10/24 13:43:08 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/30 11:13:13 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	swap(t_stack *stack)
 int	rotate(t_stack *stack)
 {
 	t_node	*temp;
-	
+
 	if (stack == NULL || stack->size < 2)
 		return (0);
 	temp = detach_front(stack);
@@ -57,7 +57,7 @@ int	rotate(t_stack *stack)
 int	reverse_rotate(t_stack *stack)
 {
 	t_node	*temp;
-	
+
 	if (stack == NULL || stack->size < 2)
 		return (0);
 	temp = detach_back(stack);
