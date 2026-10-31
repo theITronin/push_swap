@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 19:53:31 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 11:37:22 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ typedef struct s_data
 t_node	*create_node(int value);
 t_node	*detach_front(t_stack *stack);
 t_node	*detach_back(t_stack *stack);
-t_node	*get_node_at(t_stack *stack, int index);
 t_node	*get_node_at(t_stack *stack, int index);
 
 void	clear_stack(t_stack *stack);

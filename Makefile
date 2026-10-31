@@ -43,7 +43,7 @@ $(NAME): $(OBJS) $(OBJS_SOURCE) $(LIBFT)
 	@echo "********************************"
 
 $(NAME_BONUS): $(OBJS_BONUS) $(OBJS_SOURCE) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS_BONUS) $(OBJS_SOURCE) $(LIBFT) -o $(NAME_BONUS) 
+	$(CC) $(CFLAGS) $(OBJS_BONUS) $(OBJS_SOURCE) $(LIBFT) -o $(NAME_BONUS)
 	@echo "********************************"
 	@echo "Compilation $(NAME) completed"
 	@echo "********************************"
@@ -60,7 +60,7 @@ $(LIBFT):
 all:  $(NAME)
 
 bonus: $(NAME_BONUS)
-	
+
 # RULE: DELETE OBJECT FILES
 clean:
 	@echo "Deleting objects files (*.o)..."
@@ -71,11 +71,11 @@ clean:
 fclean: clean
 	@echo "Deleting object files and library..."
 	@$(MAKE) -C $(LIBFT_DIR) fclean
-	@rm -rf $(NAME) $(NAME_BONUS) 
+	@rm -rf $(NAME) $(NAME_BONUS)
 
 # RULE: RECOMPILES ALL
 re: fclean all
 	@echo "Recompiling project..."
 
 # PHONY TARGETS
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
