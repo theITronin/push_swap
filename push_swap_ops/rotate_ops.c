@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_ops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 10:16:48 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 20:01:54 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 21:45:49 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 void	ra(t_data *data)
 {
-	data->ops_counter[5]++;
 	if (rotate(data->a))
+	{
+		data->ops_counter[5]++;
 		print_op_name(__func__, data);
+	}
 }
 
 void	rb(t_data *data)
 {
-	data->ops_counter[6]++;
 	if (rotate(data->b))
+	{
+		data->ops_counter[6]++;
 		print_op_name(__func__, data);
+	}
 }
 
 void	rr(t_data *data)
@@ -33,7 +37,9 @@ void	rr(t_data *data)
 
 	result1 = rotate(data->a);
 	result2 = rotate(data->b);
-	data->ops_counter[7]++;
-	if (result1 == 1 && result2 == 1)
+	if (result1 == 1 || result2 == 1)
+	{
+		data->ops_counter[7]++;
 		print_op_name(__func__, data);
+	}
 }

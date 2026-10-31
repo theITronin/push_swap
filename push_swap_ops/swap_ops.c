@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 10:15:54 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 20:02:57 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 21:47:44 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	ss(t_data *data)
 
 	result1 = swap(data->a);
 	result2 = swap(data->b);
-	data->ops_counter[4]++;
-	if (result1 == 1 && result2 == 1)
+	if (result1 == 1 || result2 == 1)
 	{
+		data->ops_counter[4]++;
 		print_op_name(__func__, data);
 	}
 }
