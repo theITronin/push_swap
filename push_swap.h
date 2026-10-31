@@ -68,7 +68,7 @@ void	print_stack(t_stack *stack);
 void	init_data(t_data *data);
 void	parse_params(int argc, char **argv, t_data *data);
 void	add_parse_params(char *raw_num, t_data *data);
-void	free_params(char **numbers);
+void	free_params(char **numbers, t_data *data, int error);
 void	add_nodes(char **numbers, t_data *data);
 void	split_params(char *raw_num, t_data *data);
 void	pa(t_data *data);
