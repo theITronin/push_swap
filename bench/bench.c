@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:31:22 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 19:56:15 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 17:49:34 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,26 @@ char	*print_o_adaptive(t_data *data)
 		return ("O(n log n)\n");
 }
 
-void	bench(t_data *data)
+void	print_disorder(t_data *data)
 {
 	int	disorder;
+	int	double_disorder;
 
 	disorder = data->disorder * 10000;
-	ft_printf_error("[bench] disorder: %d.%d%%\n",
-		disorder / 100, disorder % 100);
+	double_disorder = disorder % 100;
+	if (double_disorder < 10)
+		double_disorder = double_disorder * 10;
+	if (data->disorder == 0.0)
+		ft_printf_error("[bench] disorder: 00.00%%\n");
+	else if (double_disorder == 0)
+		ft_printf_error("[bench] disorder: %d.00%%\n", disorder / 100);
+	else
+		ft_printf_error("[bench] disorder: %d.%d%%\n", disorder / 100, double_disorder);
+}
+
+void	bench(t_data *data)
+{
+	print_disorder(data);
 	if (data->id_flag == SIMPLE)
 		ft_printf_error("[bench] Simple / O(n^2)\n");
 	else if (data->id_flag == MEDIUM)

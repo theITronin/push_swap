@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 12:12:01 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/31 15:35:38 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 17:20:37 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,9 @@ char	*gnl_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	s_len = gnl_strlen(s);
-	if (s_len <= start + (unsigned int)len)
+	if (start >= s_len)
+		len = 0;
+	else if (len > s_len - start)
 		len = s_len - start;
 	subs = malloc((len + 1) * sizeof(char));
 	if (!subs)

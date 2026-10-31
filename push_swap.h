@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/31 15:30:35 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 17:44:37 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	sort_b(t_data *data);
 void	print_op_name(const char *str, t_data *data);
 void	check_ops(t_data *data, char *op);
 void	read_ops(t_data *data);
+void	print_disorder(t_data *data);
 
 int		main(int argc, char **argv);
 int		check_number(t_stack *stack, int value);

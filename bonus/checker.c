@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 17:45:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/31 16:00:33 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 16:12:21 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void read_ops(t_data *data)
 			free(op);
 		}
 	}
+	free (op);
 }
 
 int	main(int argc, char **argv)

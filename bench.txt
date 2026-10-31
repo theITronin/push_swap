@@ -1,5 +1,5 @@
-[bench] disorder: 40.0%
+[bench] disorder: 49.93%
 [bench] Simple / O(n^2)
-[bench] total_ops: 15
-[bench] sa: 0 sb: 0 ss: 0 pa: 5 pb: 5 
-[bench] ra: 4 rb: 0 rr: 0 rra: 1 rrb: 0 rrr: 0
+[bench] total_ops: 31638
+[bench] sa: 0 sb: 0 ss: 0 pa: 500 pb: 500 
+[bench] ra: 14728 rb: 0 rr: 0 rra: 15910 rrb: 0 rrr: 0
