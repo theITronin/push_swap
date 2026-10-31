@@ -1,32 +1,32 @@
-*Este proyecto ha sido creado como parte del currículo de 42 por pabbenit, dbustama.*
+*This project was created as part of the 42 curriculum by pabbenit and dbustama.*
 
 # Push_swap
 
-## Descripción
+## Description
 
-**Push_swap** es un proyecto de la Escuela 42 cuyo objetivo es ordenar una secuencia de enteros en orden ascendente utilizando exclusivamente dos pilas (`a` y `b`) y un conjunto limitado de operaciones. Al comenzar, `a` contiene los números en el orden recibido por argumentos y `b` está vacía. El primer número representa la cima de `a`.
+**Push_swap** is a 42 School project whose goal is to sort a sequence of integers in ascending order using only two stacks (`a` and `b`) and a limited set of operations. Initially, `a` contains the numbers in the order provided as command-line arguments, and `b` is empty. The first number represents the top of `a`.
 
-El programa **`push_swap`** analiza la entrada, selecciona una estrategia de ordenación y escribe en la salida estándar (`stdout`) las instrucciones necesarias para ordenar `a`. El objetivo no consiste únicamente en obtener un orden correcto: también se busca reducir el número de instrucciones emitidas.
+The **`push_swap`** program parses the input, selects a sorting strategy, and writes the instructions needed to sort `a` to standard output (`stdout`). The goal is not merely to obtain the correct order: it is also to minimize the number of instructions emitted.
 
-Se han integrado cuatro modos seleccionables: **simple**, **intermedio**, **complejo** y **adaptativo** (por defecto). El proyecto incluye un modo de estadísticas `--bench` y un programa adicional **`checker`** como parte bonus.
+Four selectable modes are implemented: **simple**, **medium**, **complex**, and **adaptive** (the default). The project also includes a `--bench` statistics mode and an additional **`checker`** program as a bonus.
 
-## Instrucciones
+## Instructions
 
-### Compilación
+### Compilation
 
-Desde la raíz del repositorio:
+From the repository root:
 
 ```bash
-make            # Compila push_swap y la Libft necesaria
-make bonus      # Compila checker
-make clean      # Elimina los archivos objeto
-make fclean     # Elimina objetos, ejecutables y la biblioteca compilada
-make re         # Reconstruye push_swap desde cero
+make            # Build push_swap and the required Libft library
+make bonus      # Build checker
+make clean      # Remove object files
+make fclean     # Remove objects, executables, and the compiled library
+make re         # Rebuild push_swap from scratch
 ```
 
-Se utiliza `cc` con `-Wall -Wextra -Werror`. El Makefile enlaza con la biblioteca propia situada en `libft/`.
+The project uses `cc` with `-Wall -Wextra -Werror`. The Makefile links against the project's own library in `libft/`.
 
-### Ejecución de push_swap
+### Running push_swap
 
 ```bash
 ./push_swap 3 2 1
@@ -37,35 +37,35 @@ Se utiliza `cc` con `-Wall -Wextra -Werror`. El Makefile enlaza con la bibliotec
 ./push_swap "3 -2 10 5"
 ```
 
-| Opción | Comportamiento |
+| Option | Behavior |
 | --- | --- |
-| Sin selector | Utiliza el modo adaptativo. |
-| `--simple` | Fuerza la extracción sucesiva del mínimo. |
-| `--medium` | Fuerza el algoritmo basado en bloques o *chunks*. |
-| `--complex` | Fuerza el algoritmo radix binario LSD (Leas Significant Digit). |
-| `--adaptive` | Selecciona una de las estrategias según el desorden inicial. |
-| `--bench` | Añade estadísticas por `stderr` sin sustituir las instrucciones de `stdout`. |
+| No selector | Uses adaptive mode. |
+| `--simple` | Forces repeated minimum extraction. |
+| `--medium` | Forces the block-based, or *chunk*, algorithm. |
+| `--complex` | Forces binary LSD (Least Significant Digit) radix sort. |
+| `--adaptive` | Selects a strategy based on the initial disorder level. |
+| `--bench` | Adds statistics to `stderr` while keeping the instructions on `stdout`. |
 
-Las instrucciones se imprimen una por línea. Una entrada que ya esté ordenada no necesita operaciones. Sin argumentos, el programa debe terminar sin mostrar nada; ante una entrada no válida, escribe `Error\n` por `stderr`.
+Instructions are printed one per line. An input that is already sorted requires no operations. With no arguments, the program must exit without displaying anything; for invalid input, it writes `Error\n` to `stderr`.
 
-### Modo benchmark
+### Benchmark mode
 
 ```bash
 ./push_swap --bench 3 2 1
 
-# Guardar las estadísticas y enviar las operaciones al checker:
+# Save statistics and pipe the operations to checker:
 ARG="3 2 1"
 ./push_swap --bench $ARG 2> bench.txt | ./checker $ARG
 
-# Contar exclusivamente las instrucciones:
+# Count only the instructions:
 ./push_swap --complex $ARG | wc -l
 ```
 
-El benchmark informa del índice de desorden, la estrategia ejecutada, la complejidad que identifica el programa, el total de instrucciones y el desglose por las 11 operaciones. Las estadísticas se envían a **`stderr`** y las operaciones a **`stdout`**; esta separación permite usar tuberías sin mezclar ambos contenidos.
+The benchmark reports the disorder index, the executed strategy, the complexity reported by the program, the total number of instructions, and a breakdown of the 11 operations. Statistics are sent to **`stderr`** and operations to **`stdout`**; keeping them separate allows pipes to be used without mixing their contents.
 
 ### Bonus: checker
 
-Compilar primero con `make bonus`. El checker recibe los mismos números iniciales que Push_swap y lee las instrucciones por la entrada estándar (`stdin`):
+First, build the bonus with `make bonus`. The checker receives the same initial numbers as Push_swap and reads instructions from standard input (`stdin`):
 
 ```bash
 ARG="3 2 1"
@@ -73,180 +73,180 @@ ARG="3 2 1"
 
 printf 'sa\nrra\n' | ./checker 3 2 1
 printf 'pb\n' | ./checker 1 2 3
-printf 'instruccion_invalida\n' | ./checker 3 2 1
+printf 'invalid_instruction\n' | ./checker 3 2 1
 ```
 
-El checker usa `get_next_line()` para leer instrucciones completas y las aplica sobre sus dos pilas. Tras llegar al final de la entrada, escribe `OK\n` si **`a` está ordenada y `b` vacía**, o `KO\n` en caso contrario. Si una instrucción o un argumento es inválido, escribe `Error\n` en `stderr`. Sin argumentos, finaliza silenciosamente.
+The checker uses `get_next_line()` to read complete instructions and applies them to its two stacks. Upon reaching the end of input, it writes `OK\n` if **`a` is sorted and `b` is empty**, or `KO\n` otherwise. If an instruction or argument is invalid, it writes `Error\n` to `stderr`. With no arguments, it exits silently.
 
-## Operaciones permitidas
+## Allowed operations
 
-| Operación | Significado |
+| Operation | Meaning |
 | --- | --- |
-| `sa`, `sb` | Intercambian los dos primeros elementos de `a` o `b`. |
-| `ss` | Aplica los intercambios de ambas pilas. |
-| `pa` | Envía el primer elemento de `b` a la cima de `a`. |
-| `pb` | Envía el primer elemento de `a` a la cima de `b`. |
-| `ra`, `rb` | Rotan la pila hacia arriba: el primer elemento pasa al final. |
-| `rr` | Aplica ambas rotaciones hacia arriba. |
-| `rra`, `rrb` | Rotan la pila hacia abajo: el último elemento pasa al principio. |
-| `rrr` | Aplica ambas rotaciones hacia abajo. |
+| `sa`, `sb` | Swap the first two elements of `a` or `b`. |
+| `ss` | Apply the swap operations to both stacks. |
+| `pa` | Push the top element of `b` onto `a`. |
+| `pb` | Push the top element of `a` onto `b`. |
+| `ra`, `rb` | Rotate a stack upwards: the first element moves to the end. |
+| `rr` | Apply upward rotation to both stacks. |
+| `rra`, `rrb` | Reverse-rotate a stack: the last element moves to the front. |
+| `rrr` | Apply reverse rotation to both stacks. |
 
-Las instrucciones combinadas (`ss`, `rr`, `rrr`) cuentan como **una** instrucción emitida, aunque afecten a las dos pilas.
+Combined instructions (`ss`, `rr`, `rrr`) count as **one** emitted instruction, even though they affect both stacks.
 
-## Diseño y decisiones técnicas
+## Design and technical decisions
 
-### Representación de las pilas
+### Stack representation
 
-Se utilizan listas doblemente enlazadas (`t_node`), con punteros al primer y último nodo (`head`, `tail`) y un contador `size` en cada `t_stack`. Una estructura `t_data` centraliza las dos pilas, el selector de algoritmo, los indicadores de benchmark/checker, el índice de desorden y los contadores de operaciones.
+The project uses doubly linked lists (`t_node`), with pointers to the first and last nodes (`head`, `tail`) and a `size` counter in each `t_stack`. A central `t_data` structure stores both stacks, the algorithm selector, benchmark/checker flags, the disorder index, and operation counters.
 
-Los números se validan antes de crear los nodos. La liberación de los nodos y de las estructuras se centraliza mediante funciones de limpieza, mientras que el procesamiento de argumentos administra sus reservas temporales.
+Numbers are validated before nodes are created. Node and structure deallocation is centralized in cleanup functions, while argument processing manages its own temporary allocations.
 
-### Indexación de valores
+### Value indexing
 
-Antes de ordenar, se asigna a cada nodo un índice `n_index`, correspondiente a la posición que ocupa su valor en la secuencia ordenada: índices de `0` a `n - 1`.
+Before sorting, each node is assigned an `n_index` corresponding to the position of its value in the sorted sequence, using indices from `0` to `n - 1`.
 
-Esta normalización permite trabajar con números negativos o grandes sin cambiar la lógica del radix binario. Por ejemplo, los valores `[-10, 50, 3]` se corresponden con los índices `[0, 2, 1]`.
+This normalization allows the binary radix algorithm to handle negative or large numbers without changing its logic. For example, the values `[-10, 50, 3]` correspond to the indices `[0, 2, 1]`.
 
-### Índice de desorden
+### Disorder index
 
-El desorden se mide **antes de efectuar movimientos** mediante la proporción de pares invertidos:
+Disorder is measured **before performing any movements** using the proportion of inverted pairs:
 
 $$
 D = \frac{I}{\frac{n(n-1)}{2}}
 $$
 
-Donde `I` es el número de pares de posiciones `(i, j)` tales que `i < j` y `a[i] > a[j]`, y `n` es el número de elementos. Para `n < 2` se toma `D = 0`.
+Here, `I` is the number of pairs of positions `(i, j)` such that `i < j` and `a[i] > a[j]`, and `n` is the number of elements. For `n < 2`, we define `D = 0`.
 
-- `D = 0`: entrada ordenada.
-- `D = 1`: entrada en orden estrictamente descendente.
-- `0 < D < 1`: desorden parcial.
+- `D = 0`: sorted input.
+- `D = 1`: strictly descending input.
+- `0 < D < 1`: partially disordered input.
 
-El cálculo de pares invertidos requiere **O(n²) comparaciones en C** y **O(1) memoria auxiliar**, sin contar el array temporal utilizado por el programa para representar los valores.
+Counting inverted pairs requires **O(n²) comparisons in C** and **O(1) auxiliary memory**, excluding the temporary array the program uses to represent the values.
 
-## Algoritmos seleccionados y justificación
+## Selected algorithms and rationale
 
-**Importante:** en este proyecto distinguimos entre el número de **instrucciones de Push_swap emitidas** y el tiempo interno de ejecución en C. Las cotas de operaciones que exige el enunciado se refieren a las instrucciones generadas. El cálculo inicial del desorden y la preparación de índices tienen costes propios, aunque no impriman movimientos.
+**Important:** this project distinguishes between the number of **Push_swap instructions emitted** and the internal execution time in C. The operation bounds required by the subject refer to the generated instructions. Initial disorder calculation and index preparation have their own costs, even though they do not print movements.
 
-### 1. Simple: extracción sucesiva del mínimo (`--simple`)
+### 1. Simple: Selection Sort adaptation (`--simple`)
 
-1. Busca el valor mínimo presente en `a`.
-2. Lo acerca a la cima mediante `ra` o `rra`, eligiendo el sentido que requiere menos rotaciones.
-3. Lo traslada a `b` mediante `pb`.
-4. Repite hasta vaciar `a` y devuelve todos los elementos con `pa`.
+1. Find the minimum value currently in `a`.
+2. Bring it to the top using `ra` or `rra`, choosing the direction requiring fewer rotations.
+3. Transfer it to `b` using `pb`.
+4. Repeat until `a` is empty, then return all elements using `pa`.
 
-**Justificación:** es una estrategia de selección sencilla de implementar, razonar y utilizar como referencia frente a métodos más eficientes.
+**Rationale:** this is a selection-based strategy that is straightforward to implement, reason about, and use as a baseline against more efficient methods.
 
-**Cota superior de instrucciones:** **O(n²)** en el peor caso: se pueden realizar hasta O(n) rotaciones por cada uno de los O(n) elementos. **Espacio auxiliar del algoritmo:** O(1), una vez creadas las pilas.
+**Upper bound on instructions:** **O(n²)** in the worst case: up to O(n) rotations may be needed for each of O(n) elements. **Algorithm's auxiliary space:** O(1), once the stacks have been created.
 
-### 2. Intermedio: bloques de índices o *chunks* (`--medium`)
+### 2. Medium: Chunk-based sorting *chunks* (`--medium`)
 
-1. Calcula un tamaño de bloque próximo a `√n`.
-2. Recorre `a` y envía a `b` mediante `pb` los elementos cuyo índice pertenece al rango de trabajo; utiliza `ra` para continuar buscando.
-3. Amplía progresivamente el rango hasta transferir todos los elementos.
-4. Reconstruye `a` localizando sucesivamente el máximo de `b`, acercándolo a su cima con `rb` o `rrb` y utilizando `pa`.
+1. Compute a chunk size close to `√n`.
+2. Traverse `a` and push elements whose indices fall within the current range to `b` using `pb`; use `ra` to continue searching.
+3. Gradually expand the range until all elements have been transferred.
+4. Rebuild `a` by repeatedly finding the maximum in `b`, bringing it to the top with `rb` or `rrb`, and using `pa`.
 
-**Justificación:** agrupar índices reduce las búsquedas indiscriminadas y busca mejorar el número práctico de movimientos frente a la extracción simple.
+**Rationale:** grouping indices reduces unrestricted searches and aims to lower the practical number of moves compared with simple extraction.
 
-**Análisis de operaciones:** la fase de distribución en aproximadamente `√n` bloques tiene como referencia **O(n√n)** rotaciones y envíos. No obstante, en la versión actual, la reconstrucción de `b` extrae máximos uno a uno y puede necesitar hasta **O(n²)** rotaciones como cota superior conservadora. Por ello, **la implementación completa todavía no tiene demostrada la cota O(n√n) exigida para la estrategia intermedia**. **Espacio auxiliar del algoritmo:** O(1), sin contar las estructuras generales de las pilas.
+**Operation analysis:** distributing elements across approximately `√n` chunks has a reference bound of **O(n√n)** rotations and pushes. However, in the current version, rebuilding from `b` extracts maximum values one by one and may require up to **O(n²)** rotations as a conservative upper bound. Therefore, **the complete implementation has not yet demonstrated the O(n√n) bound required for the medium strategy**. **Algorithm's auxiliary space:** O(1), excluding the general stack structures.
 
-### 3. Complejo: radix binario LSD (`--complex`)
+### 3. Complex: binary LSD radix sort (`--complex`)
 
-1. Trabaja sobre los índices normalizados de `0` a `n - 1`.
-2. Recorre sus bits del menos significativo al más significativo.
-3. Para cada bit, envía a `b` los índices cuyo bit es `0` (`pb`) y rota en `a` los de bit `1` (`ra`).
-4. Devuelve a `a` los valores almacenados en `b` (`pa`) antes de procesar el bit siguiente.
+1. Work with normalized indices from `0` to `n - 1`.
+2. Process their bits from least significant to most significant.
+3. For each bit, push indices whose bit is `0` to `b` (`pb`) and rotate indices whose bit is `1` within `a` (`ra`).
+4. Return the values stored in `b` to `a` (`pa`) before processing the next bit.
 
-**Justificación:** al distribuir establemente los elementos según cada bit se obtiene una ordenación que no depende de las magnitudes ni del signo de los enteros originales.
+**Rationale:** stable distribution by each bit produces an ordering that does not depend on the magnitudes or signs of the original integers.
 
-**Cota superior de instrucciones:** **O(n log n)**, porque se procesan O(log n) posiciones binarias y en cada una se realizan O(n) movimientos. **Espacio auxiliar del algoritmo:** O(1) adicional, usando las pilas ya existentes; la preparación inicial de índices utiliza O(n) espacio temporal.
+**Upper bound on instructions:** **O(n log n)**, since O(log n) bit positions are processed and each requires O(n) movements. **Algorithm's auxiliary space:** an additional O(1), using the existing stacks; initial index preparation uses O(n) temporary space.
 
-### 4. Adaptativo: selección por desorden (`--adaptive`, predeterminado)
+### 4. Adaptive: disorder-based selection (`--adaptive`, default)
 
-La implementación actual decide qué algoritmo ejecutar según el índice `D`:
+The current implementation chooses which algorithm to run based on the index `D`:
 
-| Nivel de desorden | Umbral | Algoritmo ejecutado actualmente | Objetivo del subject |
+| Disorder level | Threshold | Algorithm currently executed | Subject requirement |
 | --- | --- | --- | --- |
-| Bajo | `D < 0.2` | Simple, extracción del mínimo | O(n) |
-| Medio | `0.2 ≤ D < 0.5` | Intermedio, chunks | O(n√n) |
-| Alto | `D ≥ 0.5` | Complejo, radix binario | O(n log n) |
+| Low | `D < 0.2` | Simple, minimum extraction | O(n) |
+| Medium | `0.2 ≤ D < 0.5` | Medium, chunks | O(n√n) |
+| High | `D ≥ 0.5` | Complex, binary radix | O(n log n) |
 
-**Justificación de los umbrales:** `0.2` y `0.5` son los límites establecidos expresamente en el enunciado para distinguir entradas con poco, medio y mucho desorden. No son valores obtenidos de una búsqueda experimental de umbrales óptimos. El objetivo del selector es emplear un método de menor coste para entradas casi ordenadas y otros métodos progresivamente más escalables conforme aumenta el desorden.
+**Rationale for the thresholds:** `0.2` and `0.5` are the limits explicitly established by the subject to distinguish low, medium, and high disorder. They were not obtained through an experimental search for optimal thresholds. The selector aims to use a lower-cost method for nearly sorted inputs and progressively more scalable methods as disorder increases.
 
-**Cotas reales de la versión documentada:** la rama baja usa el algoritmo simple, cuya cota es O(n²), y **no satisface todavía el objetivo O(n)**. La rama media utiliza el algoritmo por chunks, cuya fase de extracción máxima tampoco garantiza todavía O(n√n) como cota completa. La rama alta sí selecciona radix, con O(n log n) instrucciones. Los cambios necesarios para cumplir los objetivos de las dos primeras ramas quedan pendientes; no se presentan esas cotas como alcanzadas.
+**Actual bounds of the documented version:** the low-disorder branch uses the simple algorithm, whose bound is O(n²), and **does not yet meet the O(n) requirement**. The medium branch uses the chunk-based algorithm, whose maximum-extraction phase also does not yet guarantee O(n√n) as an overall bound. The high-disorder branch does select radix, with O(n log n) instructions. Changes needed to meet the goals of the first two branches remain pending; those bounds are not presented as achieved.
 
-**Espacio auxiliar:** O(1) adicional en la selección y ejecución de los algoritmos, excluyendo las pilas y la preparación de índices. El programa en su conjunto usa O(n) espacio dinámico en función del número de elementos, además del almacenamiento de los argumentos.
+**Auxiliary space:** an additional O(1) for strategy selection and algorithm execution, excluding the stacks and index preparation. The program as a whole uses O(n) dynamic space as a function of the number of elements, in addition to argument storage.
 
-## Rendimiento y comprobación
+## Performance and verification
 
-El enunciado establece los siguientes umbrales para entradas aleatorias:
+The subject establishes the following thresholds for random inputs:
 
-| Tamaño | Mínimo exigido | Buen rendimiento | Excelente |
+| Input size | Minimum requirement | Good performance | Excellent |
 | --- | ---: | ---: | ---: |
-| 100 números | Menos de 2.000 operaciones | Menos de 1.500 | Menos de 700 |
-| 500 números | Menos de 12.000 operaciones | Menos de 8.000 | Menos de 5.500 |
+| 100 numbers | Fewer than 2,000 operations | Fewer than 1,500 | Fewer than 700 |
+| 500 numbers | Fewer than 12,000 operations | Fewer than 8,000 | Fewer than 5,500 |
 
-Estas cifras son **criterios del enunciado**, no resultados garantizados para cualquier ejecución de esta implementación.
+These figures are **the subject's evaluation criteria**, not results guaranteed for every run of this implementation.
 
-Algunas pruebas reproducibles:
+Some reproducible tests:
 
 ```bash
-# Verificar una secuencia completa:
+# Verify a complete instruction sequence:
 ARG="3 2 1"
 ./push_swap --complex $ARG | ./checker $ARG
 
-# Examinar la salida y el número de líneas:
+# Inspect the output and number of lines:
 ./push_swap --simple $ARG
 ./push_swap --complex $ARG | wc -l
 
-# Comprobar manejo de errores:
+# Check error handling:
 ./push_swap 1 2 1
 ./push_swap 2147483648
 ./push_swap ""
 ```
 
-Para inspeccionar la memoria dinámica en un entorno con Valgrind puede usarse, por ejemplo:
+To inspect dynamic memory in an environment with Valgrind, you can use, for example:
 
 ```bash
 valgrind --leak-check=full --show-leak-kinds=all ./push_swap 3 2 1
 ```
 
-## Organización del repositorio
+## Repository structure
 
 ```text
 .
 ├── Makefile
 ├── README.md
-├── push_swap.c                 # Punto de entrada principal
-├── push_swap.h                 # Estructuras y prototipos
-├── algorithms/                 # Estrategias y cálculo de desorden
-├── bench/                      # Estadísticas de operaciones
-├── bonus/checker.c             # Verificador de instrucciones
-├── parse/                      # Argumentos, números e indexación
-├── lst_utils/                  # Utilidades de listas y memoria
-├── push_swap_ops/              # Operaciones permitidas
-└── libft/                      # Libft, printf y get_next_line
+├── push_swap.c                 # Main entry point
+├── push_swap.h                 # Structures and function prototypes
+├── algorithms/                 # Strategies and disorder calculation
+├── bench/                      # Operation statistics
+├── bonus/checker.c             # Instruction checker
+├── parse/                      # Arguments, numbers, and indexing
+├── lst_utils/                  # Linked-list and memory utilities
+├── push_swap_ops/              # Allowed operations
+└── libft/                      # Libft, printf, and get_next_line
 ```
 
-## Recursos
+## Resources
 
-### Documentación y referencias
+### Documentation and references
 
-- **Enunciado oficial de Push_swap (Escuela 42):** especificación de las operaciones, estrategias, índice de desorden, benchmark, evaluación y bonus.
-- **La Norma de 42:** reglas de estilo, estructura y organización de código C utilizadas durante el proyecto.
-- **Linux man-pages — `read(2)`:** [man7.org/linux/man-pages/man2/read.2.html](https://man7.org/linux/man-pages/man2/read.2.html). Lectura de bytes desde `stdin`, EOF y errores.
-- **Linux man-pages — `malloc(3)` y `free(3)`:** [man7.org/linux/man-pages/man3/malloc.3.html](https://man7.org/linux/man-pages/man3/malloc.3.html). Reserva y liberación de memoria dinámica.
-- **cppreference — C:** [en.cppreference.com/w/c](https://en.cppreference.com/w/c). Tipos, expresiones, operadores y comportamiento de C.
-- **Radix sort:** [en.wikipedia.org/wiki/Radix_sort](https://en.wikipedia.org/wiki/Radix_sort). Distribución por dígitos y enfoque LSD.
-- **Selection sort:** [en.wikipedia.org/wiki/Selection_sort](https://en.wikipedia.org/wiki/Selection_sort). Ordenación por selección como referencia del algoritmo simple.
-- **Big-O notation:** [en.wikipedia.org/wiki/Big_O_notation](https://en.wikipedia.org/wiki/Big_O_notation). Notación asintótica y comparación de cotas.
+- **Official Push_swap subject (42 School):** specifications for operations, strategies, disorder index, benchmark, evaluation, and bonus.
+- **42 Norm:** C style, structure, and code organization rules followed throughout the project.
+- **Linux man-pages — `read(2)`:** [man7.org/linux/man-pages/man2/read.2.html](https://man7.org/linux/man-pages/man2/read.2.html). Reading bytes from `stdin`, EOF, and errors.
+- **Linux man-pages — `malloc(3)` and `free(3)`:** [man7.org/linux/man-pages/man3/malloc.3.html](https://man7.org/linux/man-pages/man3/malloc.3.html). Dynamic memory allocation and deallocation.
+- **cppreference — C:** [en.cppreference.com/w/c](https://en.cppreference.com/w/c). C types, expressions, operators, and behavior.
+- **Radix sort:** [en.wikipedia.org/wiki/Radix_sort](https://en.wikipedia.org/wiki/Radix_sort). Digit-by-digit distribution and the LSD approach.
+- **Selection sort:** [en.wikipedia.org/wiki/Selection_sort](https://en.wikipedia.org/wiki/Selection_sort). Selection sorting as a reference for the simple algorithm.
+- **Big-O notation:** [en.wikipedia.org/wiki/Big_O_notation](https://en.wikipedia.org/wiki/Big_O_notation). Asymptotic notation and comparison of bounds.
 
-### Uso de inteligencia artificial
+### Use of artificial intelligence
 
-Se ha utilizado **ChatGPT** como herramienta de apoyo para el aprendizaje y la revisión del proyecto, especialmente en:
+**IA** was used as a supporting tool for learning and reviewing the project, particularly for:
 
-- Explicaciones de conceptos de C necesarios para el desarrollo del proyecto.
-- Discusión y contraste del diseño de las estrategias simple, por chunks, radix y adaptativa.
-- Propuesta y análisis de pruebas de compilación, validación y rendimiento.
-- Apoyo en la preparación de documentación y del presente README.
+- Explanations of C concepts needed for project development.
+- Discussing and comparing the design of the simple, chunk-based, radix, and adaptive strategies.
+- Proposing and analyzing compilation, input-validation, and performance tests.
+- Assisting with documentation and preparation of this README.
 
-Las respuestas de IA se han utilizado como apoyo y se han contrastado con el enunciado, el código y las pruebas realizadas por el equipo. La responsabilidad del funcionamiento, la comprensión y la entrega corresponde a los dos estudiantes.
+AI-generated responses were used as supporting material and checked against the subject, the code, and tests performed by the team. Responsibility for the project's coding, functionality, understanding, and submission remains with both students.
