@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 13:14:37 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 18:56:53 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 16:04:59 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ int	foud_type_error(char c, va_list args)
 	else if (c == 'x' || c == 'X')
 		return (print_nbr_hexadecimal_error(va_arg(args, unsigned int), c));
 	else if (c == '%')
-		return (print_char('%'));
+		return (print_char_error('%'));
 	return (0);
 }

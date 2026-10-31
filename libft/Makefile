@@ -7,8 +7,11 @@ CFLAGS = -Wall -Wextra -Werror
 
 AR = ar rcs
 
+GNL_H = get_next_line/get_next_line_bonus.h
+
 PRINTF = ft_printf/
 PRINTF_ERR = ft_printf_error/
+GNL = get_next_line/
 SOURCES = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 		  ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c \
 		  ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c \
@@ -22,7 +25,8 @@ SOURCES = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 		  $(PRINTF)ft_print_string.c $(PRINTF)ft_print_pointer.c $(PRINTF)ft_printf.c \
 		  $(PRINTF_ERR)ft_print_hex_error.c $(PRINTF_ERR)ft_print_numbers_error.c \
 		  $(PRINTF_ERR)ft_print_string_error.c $(PRINTF_ERR)ft_print_pointer_error.c \
-		  $(PRINTF_ERR)ft_printf_error.c
+		  $(PRINTF_ERR)ft_printf_error.c $(GNL)get_next_line_bonus.c \
+		  $(GNL)get_next_line_utils_bonus.c
 
 OBJS = $(SOURCES:.c=.o)
 

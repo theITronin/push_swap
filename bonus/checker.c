@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 17:45:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/31 15:46:19 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/10/31 16:00:33 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,22 @@ void	check_ops(t_data *data, char *op)
 	print_error(-1, data);
 }
 
-void	read_ops(t_data *data)
-{
-	char	*op;
-	ssize_t	bytes;
-
-	bytes = 1;
-	while (bytes > 0)
+void read_ops(t_data *data)
+{  
+	char *op;
+	int  state;
+	
+	state = 1;  
+	while (state)
 	{
-		op = (char *)malloc(4 * sizeof(char));
+		op = get_next_line(0);
 		if (!op)
-			print_error(-1, data);
-		bytes = read(0, op, 4);
-		if (bytes > 0)
+			state = 0;
+		if (state)
 		{
-			op[bytes] = '\0';
 			check_ops(data, op);
+			free(op);
 		}
-		free(op);
 	}
 }
 
