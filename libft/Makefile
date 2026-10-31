@@ -21,7 +21,7 @@ SOURCES = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 		  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 		  ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 		  ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
-		  ft_strcmp.c  $(PRINTF)ft_print_hex.c $(PRINTF)ft_print_numbers.c \
+		  ft_atol.c ft_strcmp.c  $(PRINTF)ft_print_hex.c $(PRINTF)ft_print_numbers.c \
 		  $(PRINTF)ft_print_string.c $(PRINTF)ft_print_pointer.c $(PRINTF)ft_printf.c \
 		  $(PRINTF_ERR)ft_print_hex_error.c $(PRINTF_ERR)ft_print_numbers_error.c \
 		  $(PRINTF_ERR)ft_print_string_error.c $(PRINTF_ERR)ft_print_pointer_error.c \

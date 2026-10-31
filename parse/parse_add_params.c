@@ -3,39 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_add_params.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 18:40:59 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 20:00:11 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 18:41:08 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-long	ft_atol(char *nptr)
-{
-	long	n;
-	int		negative;
-	size_t	i;
-
-	n = 0;
-	negative = 0;
-	i = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
-		i++;
-	if (nptr[i] == '-')
-		negative = 1;
-	if (nptr[i] == '-' || nptr[i] == '+')
-		i++;
-	while (nptr[i] >= 48 && nptr[i] <= 57)
-	{
-		n = n * 10 + (nptr[i] - '0');
-		i++;
-	}
-	if (negative == 1)
-		n = n * -1;
-	return (n);
-}
 
 void	free_params(char **numbers, t_data *data, int error)
 {

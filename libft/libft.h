@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 15:43:18 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/31 15:29:03 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 18:48:57 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,16 +105,16 @@ t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 
-void	*gnl_clean_stash(char *stash, char *line);
-char	*gnl_memory_free(char *new, char **stash);
-char	*gnl_get_lines(char	**stash, size_t len_l);
-char	*gnl_read_buff(int fd, char *rest);
-char	*get_next_line(int fd);
-char	*gnl_strjoin(char *s1, char *s2);
-char	*gnl_strchr(char *s, int c);
-char	*gnl_substr(char const *s, unsigned int start, size_t len);
+void			*gnl_clean_stash(char *stash, char *line);
+char			*gnl_memory_free(char *new, char **stash);
+char			*gnl_get_lines(char	**stash, size_t len_l);
+char			*gnl_read_buff(int fd, char *rest);
+char			*get_next_line(int fd);
+char			*gnl_strjoin(char *s1, char *s2);
+char			*gnl_strchr(char *s, int c);
+char			*gnl_substr(char const *s, unsigned int start, size_t len);
 
-size_t	gnl_strlcpy(char *dst, const char *src, size_t size);
-size_t	gnl_strlen(const char *s);
+size_t			gnl_strlcpy(char *dst, const char *src, size_t size);
+size_t			gnl_strlen(const char *s);
 
 #endif

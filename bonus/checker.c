@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 17:45:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/31 16:12:21 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 18:53:32 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void	check_ops(t_data *data, char *op)
 	print_error(-1, data);
 }
 
-void read_ops(t_data *data)
-{  
-	char *op;
-	int  state;
-	
-	state = 1;  
+void	read_ops(t_data *data)
+{
+	char	*op;
+	int		state;
+
+	state = 1;
 	while (state)
 	{
 		op = get_next_line(0);

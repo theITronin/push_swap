@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:31:22 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/31 17:49:34 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 18:58:46 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,14 @@ void	print_disorder(t_data *data)
 	disorder = data->disorder * 10000;
 	double_disorder = disorder % 100;
 	if (double_disorder < 10)
-		double_disorder = double_disorder * 10;
-	if (data->disorder == 0.0)
+		ft_printf_error("[bench] disorder: %d.0%d%%\n", disorder / 100, double_disorder);
+	else if (data->disorder == 0.0)
 		ft_printf_error("[bench] disorder: 00.00%%\n");
 	else if (double_disorder == 0)
 		ft_printf_error("[bench] disorder: %d.00%%\n", disorder / 100);
 	else
-		ft_printf_error("[bench] disorder: %d.%d%%\n", disorder / 100, double_disorder);
+		ft_printf_error("[bench] disorder: %d.%d%%\n",
+			disorder / 100, double_disorder);
 }
 
 void	bench(t_data *data)
