@@ -15,6 +15,8 @@ SOURCES = push_swap.c \
 		  algorithms/simple_algorithm.c \
 		  algorithms/adaptive_algorithm.c \
 		  algorithms/flag_management.c \
+		  algorithms/sort_five.c \
+		  algorithms/sort_three.c \
 		  bench/bench.c
 
 SOURCES_MIX = lst_utils/lst_utils.c \

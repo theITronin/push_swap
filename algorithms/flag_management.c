@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flag_management.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:23:20 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 17:52:47 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 22:31:51 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ void	flag_management(t_data *data)
 			alg_medium(data);
 		else if (data->id_flag == COMPLEX)
 			alg_complex(data);
+		else if (data->a->size <= 3)
+			sort_three_or_less(data);
+		else if (data->a->size <= 5)
+			sort_five_or_less(data);
 		else
 			alg_adaptive(data);
 	}

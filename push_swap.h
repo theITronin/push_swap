@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/31 17:44:37 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 22:15:44 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ void	print_op_name(const char *str, t_data *data);
 void	check_ops(t_data *data, char *op);
 void	read_ops(t_data *data);
 void	print_disorder(t_data *data);
+void	sort_five_or_less(t_data *data);
+void	sort_three_or_less(t_data *data);
 
 int		main(int argc, char **argv);
 int		check_number(t_stack *stack, int value);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   adaptive_algorithm.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 18:29:00 by pbv               #+#    #+#             */
-/*   Updated: 2026/10/30 19:52:12 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 22:05:48 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
