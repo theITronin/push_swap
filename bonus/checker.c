@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 17:45:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 20:34:39 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/10/31 15:46:19 by pabbenit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ int	main(int argc, char **argv)
 {
 	t_data	*data;
 
-	if (argc < 1)
-		return (-1);
+	if (argc == 1)
+		return (0);
 	data = (t_data *)ft_calloc(sizeof(t_data), 1);
 	if (!data)
 		print_error(-1, data);
@@ -77,10 +77,10 @@ int	main(int argc, char **argv)
 		print_error(-1, data);
 	read_ops(data);
 	lst_to_int(data);
-	if (data->disorder == 0.0)
-		ft_printf("%s", "OK");
+	if (data->disorder == 0.0 && data->b->size == 0)
+		ft_printf("%s", "OK\n");
 	else
-		ft_printf("%s", "KO");
+		ft_printf("%s", "KO\n");
 	memory_free(data);
 	return (0);
 }
