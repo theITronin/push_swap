@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 09:31:22 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/31 21:53:57 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/11/01 12:09:18 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	bench(t_data *data)
 	if (data->id_flag == SIMPLE)
 		ft_printf_error("[bench] Simple / O(n^2)\n");
 	else if (data->id_flag == MEDIUM)
-		ft_printf_error("[bench] Medium / O(n√n)\n");
+		ft_printf_error("[bench] Medium / O(n*sqrt(n))\n");
 	else if (data->id_flag == COMPLEX)
 		ft_printf_error("[bench] Complex / O(n log n)\n");
 	else
