@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 17:25:23 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 20:00:42 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/11/02 11:43:00 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	lst_to_int(t_data *data)
 	i = 0;
 	array = (int *)malloc(data->a->size * sizeof(int));
 	if (!array)
-		print_error(-42, data);
+		print_error(-7, data);
 	while (i < data->a->size)
 	{
 		node = get_node_at(data->a, i);

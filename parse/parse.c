@@ -6,7 +6,7 @@
 /*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:40:19 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/30 19:59:59 by dbustama         ###   ########.fr       */
+/*   Updated: 2026/11/02 11:42:29 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	memory_free(t_data *data)
 void	parse_flag(char *flag, t_data *data)
 {
 	if (!flag || !data)
-		print_error(-3, data);
+		print_error(-4, data);
 	if (data->id_flag == -1)
 	{
 		if (ft_strcmp(flag, "--simple") == 0)
@@ -59,7 +59,7 @@ void	parse_flag(char *flag, t_data *data)
 		data->check_bench = 1;
 		return ;
 	}
-	print_error(-3, data);
+	print_error(-4, data);
 }
 
 void	parse_params(int argc, char **argv, t_data *data)
@@ -83,7 +83,7 @@ void	parse_params(int argc, char **argv, t_data *data)
 				else if (argv[i][j] == ' ')
 					j++;
 				else
-					print_error(-2, data);
+					print_error(-3, data);
 			}
 			split_params(argv[i], data);
 		}
@@ -100,11 +100,11 @@ void	init_data(t_data *data)
 	data->b = NULL;
 	a = (t_stack *)ft_calloc(sizeof(t_stack), 1);
 	if (!a)
-		print_error(-1, data);
+		print_error(-2, data);
 	data->a = a;
 	b = (t_stack *)ft_calloc(sizeof(t_stack), 1);
 	if (!b)
-		print_error(-1, data);
+		print_error(-2, data);
 	data->b = b;
 	data->id_flag = INVALID_FLAG;
 }

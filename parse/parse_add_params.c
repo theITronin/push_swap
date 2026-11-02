@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_add_params.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 18:40:59 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/31 18:41:08 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/11/02 11:42:54 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	free_params(char **numbers, t_data *data, int error)
 	}
 	free(numbers);
 	if (error)
-		print_error (-4, data);
+		print_error (-6, data);
 }
 
 void	add_nodes(char **numbers, t_data *data)
@@ -58,7 +58,7 @@ void	split_params(char *raw_num, t_data *data)
 
 	numbers = ft_split(raw_num, ' ');
 	if (!numbers)
-		print_error(-3, data);
+		print_error(-5, data);
 	else if (!numbers[0])
 		free_params(numbers, data, 1);
 	add_nodes(numbers, data);

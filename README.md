@@ -250,3 +250,8 @@ valgrind --leak-check=full --show-leak-kinds=all ./push_swap 3 2 1
 - Assisting with documentation and preparation of this README.
 
 AI-generated responses were used as supporting material and checked against the subject, the code, and tests performed by the team. Responsibility for the project's coding, functionality, understanding, and submission remains with both students.
+
+## Members Contributions
+
+- Every member of this group has contributed to the conceptual design of each part of the project and has a thorough understanding of all the concepts required to develop it.
+- Each member has contributed to develop, test and debug the code implementations of ths project.                                                 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/17 09:56:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/31 22:15:44 by pabbenit         ###   ########.fr       */
+/*   Created: 2026/11/02 11:44:16 by dbustama          #+#    #+#             */
+/*   Updated: 2026/11/02 11:44:22 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabbenit <pabbenit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dbustama <dbustama@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 17:45:57 by dbustama          #+#    #+#             */
-/*   Updated: 2026/10/31 18:53:32 by pabbenit         ###   ########.fr       */
+/*   Updated: 2026/11/02 11:43:20 by dbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	check_ops(t_data *data, char *op)
 	else if (ft_strcmp(op, "rrr\n") == 0)
 		return (rrr(data));
 	free(op);
-	print_error(-1, data);
+	print_error(-9, data);
 }
 
 void	read_ops(t_data *data)
@@ -68,12 +68,12 @@ int	main(int argc, char **argv)
 		return (0);
 	data = (t_data *)ft_calloc(sizeof(t_data), 1);
 	if (!data)
-		print_error(-1, data);
+		print_error(-8, data);
 	init_data(data);
 	data->check_bonus = 1;
 	parse_params(argc, argv, data);
 	if (data->id_flag > -1 || data->check_bench == 1)
-		print_error(-1, data);
+		print_error(-8, data);
 	read_ops(data);
 	lst_to_int(data);
 	if (data->disorder == 0.0 && data->b->size == 0)
