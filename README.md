@@ -254,4 +254,5 @@ AI-generated responses were used as supporting material and checked against the 
 ## Members Contributions
 
 - Every member of this group has contributed to the conceptual design of each part of the project and has a thorough understanding of all the concepts required to develop it.
-- Each member has contributed to develop, test and debug the code implementations of ths project.                                                 
+- Each member has contributed to develop, test and debug the code implementations of ths project.
+                                              
